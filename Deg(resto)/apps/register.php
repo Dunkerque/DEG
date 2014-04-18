@@ -13,14 +13,16 @@
 		$ville = mysqli_real_escape_string($db, $_POST['ville']);
 		$info_complementaire = mysqli_real_escape_string($db, $_POST['info_complementaire']);
 		$birthday = mysqli_real_escape_string($db, $_POST['birthday']);
+		$point = "1";
+		$fidelpoint = mysqli_real_escape_string($db, $point);
 		
 		$checklogin = 'SELECT * FROM users WHERE login = "'.$login.'"';
 		$res_checklogin = mysqli_query($db, $checklogin);
 		$ligne = mysqli_fetch_assoc($res_checklogin);
 
 		if (!mysqli_num_rows($res_checklogin)) {
-			$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, birthday)
-			VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'")';
+			$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, birthday,fidel_point)
+			VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'","'.$fidelpoint.'")';
 			$res_insert_user = mysqli_query($db, $insert_user);
 			$msg_register = 'Votre compte à bien été créé <br /><br />';
 		} else {
