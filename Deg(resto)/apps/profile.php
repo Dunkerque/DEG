@@ -24,7 +24,7 @@ if (isset($_SESSION["login"]))
 
 	else 
 	{
-		echo "ko";
+		header("location:index.php");
 	}
 	require("views/profile.html");
 }
