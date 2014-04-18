@@ -1,3 +1,2 @@
-<?php
-require("views/footer.html");
-?>
+<?php require('views/footer.html'); ?>
+
