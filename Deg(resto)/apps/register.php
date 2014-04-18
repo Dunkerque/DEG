@@ -8,7 +8,7 @@
 		$nom = mysqli_real_escape_string($db, $_POST['nom']);
 		$prenom = mysqli_real_escape_string($db, $_POST['prenom']);
 		$adresse = mysqli_real_escape_string($db, $_POST['adresse']);
-		$code_postal = mysqli_real_escape_string($db, $_POST['code_postal']);
+		$code_postal = intval($_POST['code_postal']);
 		$ville = mysqli_real_escape_string($db, $_POST['ville']);
 		$info_complementaire = mysqli_real_escape_string($db, $_POST['info_complementaire']);
 		$birthday = mysqli_real_escape_string($db, $_POST['birthday']);
@@ -20,11 +20,11 @@
 		if (!mysqli_num_rows($res_checklogin)) {
 			$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, birthday)
 			VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'")';
-			$res_insert_user = mysqli_query($db, $res_insert_user);
-			$msg_register = 'Votre compte à bien été créé';
+			$res_insert_user = mysqli_query($db, $insert_user);
+			$msg_register = 'Votre compte à bien été créé <br /><br />';
 			require('views/register.html');
 		} else {
-			$msg_register = 'Ce login  existe déjà, veuillez en choisir un autre.';
+			$msg_register = 'Ce login  existe déjà, veuillez en choisir un autre. <br /><br />';
 			require('views/register.html'); 
 		}
 
@@ -33,7 +33,7 @@
 		if ($id_users >= 0) {
 			$msg_register = '';
 		} else {
-			$msg_register = "Erreur d'insertion SQL: ".mysqli_error($db)."<br />";
+			$msg_register = "Erreur d'insertion SQL: ".mysqli_error($db)."<br /><br />";
 			require('views/register.html'); 
 		}
 	}else{
