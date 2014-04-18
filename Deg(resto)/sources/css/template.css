@@ -60,7 +60,9 @@ a{
 }
 
 .main_div{
-	background:rgb(254,244,201);
+	margin-top:1rem;
+	margin-bottom:1rem;
+	border:0.0625rem rgb(177,34,28) solid;
 	border-radius:0.3rem;
 }
 
@@ -189,6 +191,7 @@ a{
 .footer{
 	text-align:center;
 	font-family: 'sf_wasabiregular';
+	border-bottom:1rem rgb(177,34,28) solid;
 }
 
 .submit{
