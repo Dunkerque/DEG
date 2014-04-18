@@ -85,6 +85,11 @@ a{
 	border-radius:0.2rem;
 }
 
+.p_register{
+	float:right;
+
+}
+
 .input_text{
 	width:35%;
 }
