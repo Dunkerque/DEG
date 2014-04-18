@@ -54,10 +54,6 @@ a{
 	text-decoration:none;
 }
 
-a:hover{
-	text-decoration:underline;
-}
-
 .content{
 	width:62.5rem;
 	margin:0 auto;
@@ -77,6 +73,11 @@ a:hover{
 	overflow:hidden;
 	color:rgb(244,244,235);
 }
+
+.header~a{
+	color:rgb(244,244,235);
+}
+
 
 .title_txt{
 	text-align:center;
