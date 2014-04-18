@@ -1,9 +1,35 @@
+@font-face {
+    font-family: 'sf_wasabiregular';
+    src: url('sources/fonts/regular/SF_Wasabi-webfont.eot');
+    src: url('sources/fonts/regular/SF_Wasabi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sources/fonts/regular/SF_Wasabi-webfont.woff') format('woff'),
+         url('sources/fonts/regular/SF_Wasabi-webfont.ttf') format('truetype'),
+         url('sources/fonts/regular/SF_Wasabi-webfont.svg#sf_wasabiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'sf_wasabi_condensedregular';
+    src: url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.eot');
+    src: url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.woff') format('woff'),
+         url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.ttf') format('truetype'),
+         url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.svg#sf_wasabi_condensedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body{
 	width:100%;
 	margin:0 auto;
+	font-family:'times new roman';
 }
 
 h1{
+	font-family: 'sf_wasabi_condensedregular';
 	font-size:2.5rem;
 	text-align:center;
 }
@@ -22,9 +48,37 @@ a{
 }
 
 .header{
-	
+	padding-bottom:0.5rem;
+	overflow:hidden;
+	color:rgb(244,244,235);
 }
 
+.form_login{
+	float:right;
+	width:40%;
+	margin-top:0.5rem;
+}
+
+.form_login>input{
+	border:none;
+	padding:0;
+	margin:0;
+	border-radius:0.2rem;
+}
+
+.input_text{
+	width:35%;
+}
+
+.input_pass{
+	width:35%;
+}
+
+.login_submit{
+	width:25%;
+	background:rgb(244,244,235);
+	color:rgb(177,34,28);
+}
 
 .title_txt{
 	text-align:center;
@@ -53,7 +107,6 @@ a{
 	height:2rem;
 	color:rgb(177,34,28);
 }
-
 
 #main_footer{
 	background:rgb(244,244,235);
