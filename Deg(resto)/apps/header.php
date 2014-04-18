@@ -1,5 +1,6 @@
 
 <?php
+echo "k";
 $erreur = '';
 $page_login = "";
 if(isset($_SESSION['login']))
