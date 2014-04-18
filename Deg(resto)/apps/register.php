@@ -1,4 +1,4 @@
-<?php 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <?php 
 	$msg_register = '';
 
 	if (isset($_POST['login'], $_POST['password'])) {
