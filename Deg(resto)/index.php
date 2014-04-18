@@ -4,8 +4,8 @@ session_start();
 $pagefiles = array("home","login","menu","livre_or","coordonnee","command");
 $pageU = $_GET["page"];
 $page = "apps/home";
-if(isset($_GET['page'])){
-	if (in_array($pageU,$pagefiles))
+if(isset($pageU)){
+	if (in_array(strtolower($pageU),$pagefiles))
 	{
 		$page = "apps/".$pageU;
 	}
