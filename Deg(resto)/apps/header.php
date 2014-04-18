@@ -41,6 +41,7 @@ else if(isset($_POST['login_user'], $_POST['login_pass']))
 				$_SESSION['admin'] = 1;
 				else
 				$_SESSION['admin'] = 0;
+				header('Location:index.php');
 			}	
 			else{
 				$erreur = 'Password incorrect';
