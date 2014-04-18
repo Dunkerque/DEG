@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 18 Avril 2014 à 11:38
+-- Généré le: Ven 18 Avril 2014 à 14:21
 -- Version du serveur: 5.5.35-0ubuntu0.13.10.2
 -- Version de PHP: 5.5.3-1ubuntu2.2
 
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `info_complementaire`, `birthday`, `fidel_point`) VALUES
-(1, 'admin', 'admin', 1, 'admin@admin.com', 'root', 'root', '3 rue de la papeterie', '525856', 'Cachan', NULL, '2006-12-11', 10);
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 'admin@admin.com', 'root', 'root', '3 rue de la papeterie', '525856', 'Cachan', NULL, '2006-12-11', 10);
 
 --
 -- Contraintes pour les tables exportées
