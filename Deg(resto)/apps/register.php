@@ -22,23 +22,19 @@
 			VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'")';
 			$res_insert_user = mysqli_query($db, $insert_user);
 			$msg_register = 'Votre compte à bien été créé <br /><br />';
-			require('views/register.html');
 		} else {
 			$msg_register = 'Ce login  existe déjà, veuillez en choisir un autre. <br /><br />';
-			require('views/register.html'); 
-		}
-
+		}	
+		require('views/register.html');
 		$id_users = mysqli_insert_id($db);
 
 		if ($id_users >= 0) {
 			$msg_register = '';
 		} else {
 			$msg_register = "Erreur d'insertion SQL: ".mysqli_error($db)."<br /><br />";
-			require('views/register.html'); 
 		}
-	}else{
-		require('views/register.html'); 
 	}
-
-	
+	else{
+		require('views/register.html');
+	}
 ?>
