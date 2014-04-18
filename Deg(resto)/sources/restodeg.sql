@@ -1,155 +1,175 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+-- phpMyAdmin SQL Dump
+-- version 4.0.6deb1
+-- http://www.phpmyadmin.net
+--
+-- Client: localhost
+-- Généré le: Ven 18 Avril 2014 à 11:38
+-- Version du serveur: 5.5.35-0ubuntu0.13.10.2
+-- Version de PHP: 5.5.3-1ubuntu2.2
 
-DROP SCHEMA IF EXISTS `restodeg` ;
-CREATE SCHEMA IF NOT EXISTS `restodeg` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `restodeg` ;
-
--- -----------------------------------------------------
--- Table `restodeg`.`users`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `restodeg`.`users` ;
-
-CREATE  TABLE IF NOT EXISTS `restodeg`.`users` (
-  `id_users` MEDIUMINT(9) NOT NULL AUTO_INCREMENT ,
-  `login` VARCHAR(45) NOT NULL ,
-  `password` VARCHAR(512) NOT NULL ,
-  `email` VARCHAR(45) NOT NULL ,
-  `nom` VARCHAR(45) NOT NULL ,
-  `prenom` VARCHAR(45) NOT NULL ,
-  `adresse` VARCHAR(45) NOT NULL ,
-  `code_postal` VARCHAR(45) NOT NULL ,
-  `ville` VARCHAR(45) NOT NULL ,
-  `info_complementaire` VARCHAR(45) NULL ,
-  `birthday` DATE NULL ,
-  `fidel_point` SMALLINT(6) NULL ,
-  PRIMARY KEY (`id_users`) ,
-  UNIQUE INDEX `id_users_UNIQUE` (`id_users` ASC) ,
-  UNIQUE INDEX `login_UNIQUE` (`login` ASC) )
-ENGINE = InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
--- -----------------------------------------------------
--- Table `restodeg`.`reservation`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `restodeg`.`reservation` ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE  TABLE IF NOT EXISTS `restodeg`.`reservation` (
-  `id_reservation` MEDIUMINT(9) NOT NULL AUTO_INCREMENT ,
-  `num_tables` SMALLINT(6) NULL ,
-  `horaires` DATETIME NOT NULL ,
-  `users_id_users` MEDIUMINT(9) NOT NULL ,
-  PRIMARY KEY (`id_reservation`) ,
-  UNIQUE INDEX `id_reservation_UNIQUE` (`id_reservation` ASC) ,
-  INDEX `fk_reservation_users1_idx` (`users_id_users` ASC) ,
-  CONSTRAINT `fk_reservation_users1`
-    FOREIGN KEY (`users_id_users` )
-    REFERENCES `restodeg`.`users` (`id_users` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
+--
+-- Base de données: `restodeg`
+--
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `restodeg`.`plats`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `restodeg`.`plats` ;
+--
+-- Structure de la table `Commandes`
+--
 
-CREATE  TABLE IF NOT EXISTS `restodeg`.`plats` (
-  `id_plats` SMALLINT(6) NOT NULL AUTO_INCREMENT ,
-  `nom_plats` VARCHAR(16) NOT NULL ,
-  `contenu_plats` VARCHAR(128) NULL ,
-  `tarif_plats` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`id_plats`) ,
-  UNIQUE INDEX `id_plats_UNIQUE` (`id_plats` ASC) ,
-  UNIQUE INDEX `nom_plats_UNIQUE` (`nom_plats` ASC) )
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `Commandes` (
+  `id_cmd` int(11) NOT NULL AUTO_INCREMENT,
+  `a_emporter` tinyint(1) DEFAULT NULL,
+  `livraison` tinyint(1) DEFAULT NULL,
+  `cmd_en_attentes` tinyint(1) DEFAULT NULL,
+  `cmd_en_cours` tinyint(1) DEFAULT NULL,
+  `cmd_prêtes` tinyint(1) DEFAULT NULL,
+  `cmd_livraison_en_cours` tinyint(1) DEFAULT NULL,
+  `tarif_cmd` double DEFAULT NULL,
+  `users_id_users` mediumint(9) NOT NULL,
+  `plats_id_plats` smallint(6) NOT NULL,
+  `menus_id_menus` smallint(6) NOT NULL,
+  PRIMARY KEY (`id_cmd`),
+  UNIQUE KEY `id_commandes_UNIQUE` (`id_cmd`),
+  KEY `fk_Commandes_users1_idx` (`users_id_users`),
+  KEY `fk_Commandes_plats1_idx` (`plats_id_plats`),
+  KEY `fk_Commandes_menus1_idx` (`menus_id_menus`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `restodeg`.`menus`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `restodeg`.`menus` ;
+--
+-- Structure de la table `livre_or`
+--
 
-CREATE  TABLE IF NOT EXISTS `restodeg`.`menus` (
-  `id_menus` SMALLINT(6) NOT NULL ,
-  `nom_menus` VARCHAR(45) NOT NULL ,
-  `contenu_menus` VARCHAR(45) NULL ,
-  `tarif_menu` VARCHAR(45) NOT NULL ,
-  `plats_id_plats` SMALLINT(6) NOT NULL ,
-  PRIMARY KEY (`id_menus`) ,
-  INDEX `fk_menus_plats1_idx` (`plats_id_plats` ASC) ,
-  CONSTRAINT `fk_menus_plats1`
-    FOREIGN KEY (`plats_id_plats` )
-    REFERENCES `restodeg`.`plats` (`id_plats` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `livre_or` (
+  `id_livre_or` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `commentaires` varchar(45) DEFAULT NULL,
+  `users_id_users` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id_livre_or`),
+  KEY `fk_livre_or_users1_idx` (`users_id_users`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `restodeg`.`Commandes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `restodeg`.`Commandes` ;
+--
+-- Structure de la table `menus`
+--
 
-CREATE  TABLE IF NOT EXISTS `restodeg`.`Commandes` (
-  `id_cmd` INT(11) NOT NULL AUTO_INCREMENT ,
-  `a_emporter` TINYINT(1) NULL ,
-  `livraison` TINYINT(1) NULL ,
-  `cmd_en_attentes` TINYINT(1) NULL ,
-  `cmd_en_cours` TINYINT(1) NULL ,
-  `cmd_prêtes` TINYINT(1) NULL ,
-  `cmd_livraison_en_cours` TINYINT(1) NULL ,
-  `tarif_cmd` DOUBLE NULL ,
-  `users_id_users` MEDIUMINT(9) NOT NULL ,
-  `plats_id_plats` SMALLINT(6) NOT NULL ,
-  `menus_id_menus` SMALLINT(6) NOT NULL ,
-  PRIMARY KEY (`id_cmd`) ,
-  UNIQUE INDEX `id_commandes_UNIQUE` (`id_cmd` ASC) ,
-  INDEX `fk_Commandes_users1_idx` (`users_id_users` ASC) ,
-  INDEX `fk_Commandes_plats1_idx` (`plats_id_plats` ASC) ,
-  INDEX `fk_Commandes_menus1_idx` (`menus_id_menus` ASC) ,
-  CONSTRAINT `fk_Commandes_users1`
-    FOREIGN KEY (`users_id_users` )
-    REFERENCES `restodeg`.`users` (`id_users` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_Commandes_plats1`
-    FOREIGN KEY (`plats_id_plats` )
-    REFERENCES `restodeg`.`plats` (`id_plats` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Commandes_menus1`
-    FOREIGN KEY (`menus_id_menus` )
-    REFERENCES `restodeg`.`menus` (`id_menus` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `menus` (
+  `id_menus` smallint(6) NOT NULL,
+  `nom_menus` varchar(45) NOT NULL,
+  `contenu_menus` varchar(45) DEFAULT NULL,
+  `tarif_menu` varchar(45) NOT NULL,
+  `plats_id_plats` smallint(6) NOT NULL,
+  PRIMARY KEY (`id_menus`),
+  KEY `fk_menus_plats1_idx` (`plats_id_plats`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `restodeg`.`livre_or`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `restodeg`.`livre_or` ;
+--
+-- Structure de la table `plats`
+--
 
-CREATE  TABLE IF NOT EXISTS `restodeg`.`livre_or` (
-  `id_livre_or` INT NOT NULL ,
-  `date` DATE NULL ,
-  `commentaires` VARCHAR(45) NULL ,
-  `users_id_users` MEDIUMINT(9) NOT NULL ,
-  PRIMARY KEY (`id_livre_or`) ,
-  INDEX `fk_livre_or_users1_idx` (`users_id_users` ASC) ,
-  CONSTRAINT `fk_livre_or_users1`
-    FOREIGN KEY (`users_id_users` )
-    REFERENCES `restodeg`.`users` (`id_users` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `plats` (
+  `id_plats` smallint(6) NOT NULL AUTO_INCREMENT,
+  `nom_plats` varchar(16) NOT NULL,
+  `contenu_plats` varchar(128) DEFAULT NULL,
+  `tarif_plats` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_plats`),
+  UNIQUE KEY `id_plats_UNIQUE` (`id_plats`),
+  UNIQUE KEY `nom_plats_UNIQUE` (`nom_plats`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-USE `restodeg` ;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `reservation`
+--
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+CREATE TABLE IF NOT EXISTS `reservation` (
+  `id_reservation` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `num_tables` smallint(6) DEFAULT NULL,
+  `horaires` datetime NOT NULL,
+  `users_id_users` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id_reservation`),
+  UNIQUE KEY `id_reservation_UNIQUE` (`id_reservation`),
+  KEY `fk_reservation_users1_idx` (`users_id_users`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id_users` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `login` varchar(45) NOT NULL,
+  `password` varchar(512) NOT NULL,
+  `admin` tinyint(1) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `nom` varchar(45) NOT NULL,
+  `prenom` varchar(45) NOT NULL,
+  `adresse` varchar(45) NOT NULL,
+  `code_postal` varchar(45) NOT NULL,
+  `ville` varchar(45) NOT NULL,
+  `info_complementaire` varchar(45) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `fidel_point` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`id_users`),
+  UNIQUE KEY `id_users_UNIQUE` (`id_users`),
+  UNIQUE KEY `login_UNIQUE` (`login`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `info_complementaire`, `birthday`, `fidel_point`) VALUES
+(1, 'admin', 'admin', 1, 'admin@admin.com', 'root', 'root', '3 rue de la papeterie', '525856', 'Cachan', NULL, '2006-12-11', 10);
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `Commandes`
+--
+ALTER TABLE `Commandes`
+  ADD CONSTRAINT `fk_Commandes_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_Commandes_plats1` FOREIGN KEY (`plats_id_plats`) REFERENCES `plats` (`id_plats`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Commandes_menus1` FOREIGN KEY (`menus_id_menus`) REFERENCES `menus` (`id_menus`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `livre_or`
+--
+ALTER TABLE `livre_or`
+  ADD CONSTRAINT `fk_livre_or_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `menus`
+--
+ALTER TABLE `menus`
+  ADD CONSTRAINT `fk_menus_plats1` FOREIGN KEY (`plats_id_plats`) REFERENCES `plats` (`id_plats`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `fk_reservation_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
