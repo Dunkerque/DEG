@@ -1,0 +1,18 @@
+<p>Création d'un compte:</p>
+
+<?= $msg_login; ?>
+
+<form action="" method="POST" name="form_user">
+	<input type="text" name="login" required placeholder="Login"/>
+	<input type="password" name="password" required placeholder="Password"/>
+	<input type="password" name="password" required placeholder="Password"/>
+	<input type="email" name="email" required placeholder="Email, ex: login@resto.deg "/>
+	<input type="text" name="nom" required placeholder="Nom"/>
+	<input type="text" name="prenom" required placeholder="Prénom"/>
+	<input type="text" name="adresse" required placeholder="Adresse"/>
+	<input type="number" name="code_postal" required placeholder="Code Potal"/>
+	<input type="text" name="ville" required placeholder="Ville"/>
+	<textarea name="info_complementaire" cols=45 rows=4 value="" placeholder="Informations complémentaires, ex: digicode - bâtiments cours - étage - porte"></textarea>
+	<input type="date" name="birthday" placeholder="Votre date de naissance"/>
+	<input type="submit" value="&rarr;"/>
+</form>
