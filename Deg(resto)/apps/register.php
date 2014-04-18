@@ -1,4 +1,4 @@
-  <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <?php 
+<?php 
 	$msg_register = '';
 
 	if (isset($_POST['login'], $_POST['password'])) {
@@ -37,4 +37,5 @@
 	else{
 		require('views/register.html');
 	}
+
 ?>
