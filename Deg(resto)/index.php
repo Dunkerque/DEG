@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+$db = mysqli_connect("localhost","root","troiswa","restodeg");
 session_start();
 $pagefiles = array("home","login","menu","livre_or","coordonnee","command");
 $pageU = $_GET["page"];
