@@ -8,6 +8,7 @@
 		$nom = mysqli_real_escape_string($db, $_POST['nom']);
 		$prenom = mysqli_real_escape_string($db, $_POST['prenom']);
 		$adresse = mysqli_real_escape_string($db, $_POST['adresse']);
+		/*| Un code postal peut commencer par 0, faire attention, parce que intval va transformer 04000 par 4000 :) |*/
 		$code_postal = intval($_POST['code_postal']);
 		$ville = mysqli_real_escape_string($db, $_POST['ville']);
 		$info_complementaire = mysqli_real_escape_string($db, $_POST['info_complementaire']);
