@@ -38,4 +38,8 @@
 		require('views/register.html');
 	}
 
+// PB CONSTATER:
+// - calendrier bloquuer le calendrier sur les dates trop vieilles et sur les dates futur.
+// - sur le code postal il faut obligatoirement remplir 5 chiffre, ce qui n'est pas le cas on peut mettre un seul nombre.
+
 ?>
