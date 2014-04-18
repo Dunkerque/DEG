@@ -39,6 +39,13 @@ h2{
 	color:rgb(177,34,28);
 }
 
+h3{
+	font-family:'sf_wasabiregular';
+	font-size:1.3rem;
+	margin:1rem 0 1rem 1rem;
+	color:rgb(177,34,28);
+}
+
 .p_section{
 	margin:1rem 1rem 1rem 1rem;
 }
@@ -57,7 +64,7 @@ a:hover{
 }
 
 .main_div{
-	background:rgb(244,244,235);
+	background:rgb(254,244,201);
 	border-radius:0.3rem;
 }
 
@@ -108,12 +115,12 @@ a:hover{
 
 .login_submit{
 	width:25%;
-	background:rgb(244,244,235);
+	background:rgb(254,244,201);
 	color:rgb(177,34,28);
 }
 
 #main_nav{
-	background:rgb(244,244,235);
+	background:rgb(254,244,201);
 }
 
 .main_nav{
@@ -138,7 +145,7 @@ a:hover{
 }
 
 #main_footer{
-	background:rgb(244,244,235);
+	background:rgb(254,244,201);
 }
 
 .main_footer{
@@ -177,5 +184,10 @@ a:hover{
 	float: left;
 	width: 30%;
 	margin-right: 3%;
+}
+
+.footer{
+	text-align:center;
+	font-family: 'sf_wasabiregular';
 }
 
