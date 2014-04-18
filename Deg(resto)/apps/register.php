@@ -9,7 +9,6 @@
 		$prenom = mysqli_real_escape_string($db, $_POST['prenom']);
 		$adresse = mysqli_real_escape_string($db, $_POST['adresse']);
 		$code_postal = intval($_POST['code_postal']);
-		$code_postal = intval($db, $_POST['code_postal']);
 		$ville = mysqli_real_escape_string($db, $_POST['ville']);
 		$info_complementaire = mysqli_real_escape_string($db, $_POST['info_complementaire']);
 		$birthday = mysqli_real_escape_string($db, $_POST['birthday']);
