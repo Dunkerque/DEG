@@ -10,13 +10,7 @@ if(isset($_SESSION['login']))
 
 	if($_SESSION['login'] == $data['login'] && $_SESSION['pass'] == $data['password'])
 	{
-		if($_SESSION['admin'] == 1)
-		{
-			$page_login = 'apps/logged_admin.php';
-
-		}
-		else
-			$page_login = 'apps/logged.php';
+		$page_login = 'apps/logged.php';
 	}
 	else
 	{
