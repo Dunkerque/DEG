@@ -2,7 +2,11 @@
 header('Content-Type: text/html; charset=utf-8');
 $db = mysqli_connect("localhost","root","troiswa","restodeg");
 session_start();
-$pagefiles = array("home","login","menu","livre_or","coordonnee","command");
+<<<<<<< HEAD
+$pagefiles = array("home","menu","livre_or","coordonnee","command","logout");
+=======
+$pagefiles = array("home","login","menu","livre_or","coordonnee","command",'register');
+>>>>>>> ffd5e2b00c2e1d8a0ba529dadcce908c9395e21d
 $pageU = $_GET["page"];
 $page = "apps/home";
 if(isset($pageU)){
