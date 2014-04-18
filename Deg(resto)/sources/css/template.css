@@ -1,25 +1,23 @@
 @font-face {
     font-family: 'sf_wasabiregular';
-    src: url('sources/fonts/regular/SF_Wasabi-webfont.eot');
-    src: url('sources/fonts/regular/SF_Wasabi-webfont.eot?#iefix') format('embedded-opentype'),
-         url('sources/fonts/regular/SF_Wasabi-webfont.woff') format('woff'),
-         url('sources/fonts/regular/SF_Wasabi-webfont.ttf') format('truetype'),
-         url('sources/fonts/regular/SF_Wasabi-webfont.svg#sf_wasabiregular') format('svg');
+    src: url('../fonts//regular/SF_Wasabi-webfont.eot');
+    src: url('../fonts//regular/SF_Wasabi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts//regular/SF_Wasabi-webfont.woff') format('woff'),
+         url('../fonts//regular/SF_Wasabi-webfont.ttf') format('truetype'),
+         url('../fonts//regular/SF_Wasabi-webfont.svg#sf_wasabiregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
     font-family: 'sf_wasabi_condensedregular';
-    src: url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.eot');
-    src: url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.eot?#iefix') format('embedded-opentype'),
-         url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.woff') format('woff'),
-         url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.ttf') format('truetype'),
-         url('sources/fonts/condensed_regular/SF_Wasabi_Condensed-webfont.svg#sf_wasabi_condensedregular') format('svg');
+    src: url('../fonts/condensed_regular/SF_Wasabi_Condensed-webfont.eot');
+    src: url('../fonts/condensed_regular/SF_Wasabi_Condensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/condensed_regular/SF_Wasabi_Condensed-webfont.woff') format('woff'),
+         url('../fonts/condensed_regular/SF_Wasabi_Condensed-webfont.ttf') format('truetype'),
+         url('../fonts/condensed_regular/SF_Wasabi_Condensed-webfont.svg#sf_wasabi_condensedregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 body{
@@ -29,7 +27,7 @@ body{
 }
 
 h1{
-	font-family: 'sf_wasabi_condensedregular';
+	font-family:'sf_wasabiregular';
 	font-size:2.5rem;
 	text-align:center;
 }
@@ -51,6 +49,11 @@ a{
 	padding-bottom:0.5rem;
 	overflow:hidden;
 	color:rgb(244,244,235);
+}
+
+.title_txt{
+	text-align:center;
+	font-family: 'sf_wasabi_condensedregular';
 }
 
 .form_login{
@@ -78,10 +81,6 @@ a{
 	width:25%;
 	background:rgb(244,244,235);
 	color:rgb(177,34,28);
-}
-
-.title_txt{
-	text-align:center;
 }
 
 #main_nav{
