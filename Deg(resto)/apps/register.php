@@ -8,7 +8,11 @@
 		$nom = mysqli_real_escape_string($db, $_POST['nom']);
 		$prenom = mysqli_real_escape_string($db, $_POST['prenom']);
 		$adresse = mysqli_real_escape_string($db, $_POST['adresse']);
+<<<<<<< HEAD
 		$code_postal = intval($_POST['code_postal']);
+=======
+		$code_postal = intval($db, $_POST['code_postal']);
+>>>>>>> 99f87f1618bc484f865e3c489cd04d4d359c4685
 		$ville = mysqli_real_escape_string($db, $_POST['ville']);
 		$info_complementaire = mysqli_real_escape_string($db, $_POST['info_complementaire']);
 		$birthday = mysqli_real_escape_string($db, $_POST['birthday']);
@@ -24,7 +28,11 @@
 			$msg_register = 'Votre compte à bien été créé <br /><br />';
 			require('views/register.html');
 		} else {
+<<<<<<< HEAD
 			$msg_register = 'Ce login  existe déjà, veuillez en choisir un autre. <br /><br />';
+=======
+			$msg_register = 'Ce login  existe déjà, veuillez en choisir un autre.<br /><br />';
+>>>>>>> 99f87f1618bc484f865e3c489cd04d4d359c4685
 			require('views/register.html'); 
 		}
 
