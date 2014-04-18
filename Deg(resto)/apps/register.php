@@ -3,7 +3,7 @@
 
 	if (isset($_POST['login'], $_POST['password'])) {
 		$login = mysqli_real_escape_string($restodeg, $_POST['login']);
-		$password = mysqli_real_escape_string($restodeg, $_POST['password']);
+		$password = mysqli_real_escape_string($restodeg, sha1($_POST['password'])); // sha1 pour sécurisé le password
 		$email = mysqli_real_escape_string($restodeg, $_POST['email']);
 		$nom = mysqli_real_escape_string($restodeg, $_POST['nom']);
 		$prenom = mysqli_real_escape_string($restodeg, $_POST['prenom']);
@@ -36,7 +36,9 @@
 			$msg_register = "Erreur d'insertion SQL: ".mysqli_error($restodeg)."<br />";
 			require('views/register.html'); 
 		}
+	}else{
+		require('views/register.html'); 
 	}
 
-	require('views/register.html'); 
+	
 ?>
