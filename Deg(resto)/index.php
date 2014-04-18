@@ -2,7 +2,7 @@
 header('Content-Type: text/html; charset=utf-8');
 $db = mysqli_connect("localhost","root","troiswa","restodeg");
 session_start();
-$pagefiles = array("home","login","menu","livre_or","coordonnee","command");
+$pagefiles = array("home","menu","livre_or","coordonnee","command","logout");
 $pageU = $_GET["page"];
 $page = "apps/home";
 if(isset($pageU)){
