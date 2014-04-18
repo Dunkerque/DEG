@@ -1,1 +1,4 @@
-<?php require('views/menu.html'); ?>
+
+<?php
+require("views/menu.html");
+?>

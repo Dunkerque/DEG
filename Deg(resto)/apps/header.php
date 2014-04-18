@@ -1,1 +1,4 @@
-<?php require('views/header.html'); ?>
+
+<?php
+require("views/header.html");
+?>
