@@ -81,9 +81,8 @@ a{
 }
 
 .header>p>a{
-	border-radius:0.3rem;
-	background:rgb(244,244,235);
-	color:rgb(177,34,28)
+	text-decoration:underline;
+	color:rgb(244,244,235)
 }
 
 
