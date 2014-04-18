@@ -164,16 +164,18 @@ a:hover{
 
 .form_id{
 	float: left;
-	width: 30%
+	width: 30%;
+	margin-left: 3%;
 }
 
 .form_presentation{
 	float: left;
-	width: 30%
+	width: 30%;
 }
 
 .form_coordonnees{
 	float: left;
-	width: 30%
+	width: 30%;
+	margin-right: 3%;
 }
 
