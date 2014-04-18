@@ -1,6 +1,5 @@
 
 <?php
-echo "k";
 $erreur = '';
 $page_login = "";
 if(isset($_SESSION['login']))
@@ -46,10 +45,12 @@ else if(isset($_POST['login_user'], $_POST['login_pass']))
 			}	
 			else{
 				$erreur = 'Password incorrect';
+				$page_login = "apps/login.php";
 			}
 		}
 		else{
 			$erreur = 'Login incorrect';
+			$page_login = "apps/login.php";
 		}
 }
 else{
