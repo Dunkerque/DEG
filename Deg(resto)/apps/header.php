@@ -30,6 +30,8 @@ else if(isset($_POST['login_user'], $_POST['login_pass']))
 		$request_checkUser = 'SELECT * FROM users WHERE login = "'.$login_user.'"';
 		$resUser = mysqli_query($db,$request_checkUser);
 		$dataUser = mysqli_fetch_assoc($resUser);
+	if($resUser)
+	{
 		if($dataUser)
 		{
 			if($login_pass == $dataUser['password'])
@@ -52,6 +54,10 @@ else if(isset($_POST['login_user'], $_POST['login_pass']))
 			$erreur = 'Login incorrect';
 			$page_login = "apps/login.php";
 		}
+	}
+	else{
+		$erreur = "Erreur Internet";
+	}
 }
 else{
 	$page_login = "apps/login.php";
