@@ -185,9 +185,12 @@ a:hover{
 	width: 30%;
 	margin-right: 3%;
 }
-
 .footer{
 	text-align:center;
 	font-family: 'sf_wasabiregular';
 }
 
+.submit{
+	float: right;
+	width: 10%;
+}
