@@ -76,8 +76,14 @@ a{
 	color:rgb(244,244,235);
 }
 
-.header~a{
-	color:rgb(244,244,235);
+.nav_logged{
+	float:right;
+}
+
+.header>p>a{
+	border-radius:0.3rem;
+	background:rgb(244,244,235);
+	color:rgb(177,34,28)
 }
 
 
