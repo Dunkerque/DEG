@@ -1,1 +1,0 @@
-<?php require('views/profile_admin.html'); ?>
