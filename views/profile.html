@@ -1,0 +1,12 @@
+<div style="text-align:center;">
+	<?= $msgU; ?>
+	<p>Login: <?= $loginU;?></p>
+	<p>Nom: <?= $nomU;?></p>
+	<p>Prenom: <?= $prenomU;?></p>
+	<p>Adresse: <?= $adresseU;?></p>
+	<p>Code postal: <?= $codePostalU;?></p>
+	<p>Ville: <?= $villeU;?></p>
+	<p>Date d'inscription: <?= $date; ?></p>
+	<a href="index.php?page=edit_profile&<?=$idU;?>">Modifier ses infos</a>
+	<?php require("apps/modules/profile_admin.php"); ?>
+</div>
