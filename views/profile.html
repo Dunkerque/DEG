@@ -2,22 +2,25 @@
 	<p class="error_msg"><?=$msgU;?></p>
 	<div class="div_profil_infos">
 		<h3>Informations</h3>
-		<p class="profil_info">Login: <?= $loginU;?></p>
-		<p class="profil_info">Email: <?= $emailU; ?></p>
+		<p class="profil_info"><span class="head_info">Login:</span> <?= $loginU;?></p>
+		<p class="profil_info"><span class="head_info">Email:</span> <?= $emailU; ?></p>
 	</div>
 	<div class="div_profil_infos">
 		<h3>Présentation</h3>
-		<p class="profil_info">Nom: <?= $nomU;?></p>
-		<p class="profil_info">Prenom: <?= $prenomU;?></p>
-		<p class="profil_info">Date d'inscription: <?= $date; ?></p>
+		<p class="profil_info"><span class="head_info">Nom:</span> <?= $nomU;?></p>
+		<p class="profil_info"><span class="head_info">Prenom:</span> <?= $prenomU;?></p>
+		<p class="profil_info"><span class="head_info">Date d'inscription:</span> <?= $date; ?></p>
 	</div>
 	<div class="div_profil_infos">
 		<h3>Coordonnées postale</h3>
-		<p class="profil_info">Adresse: <?= $adresseU;?></p>
-		<p class="profil_info">Code postal: <?= $codePostalU;?></p>
-		<p class="profil_info">Ville: <?= $villeU;?></p>
+		<p class="profil_info"><span class="head_info">Adresse:</span> <?= $adresseU;?></p>
+		<p class="profil_info"><span class="head_info">Code postal:</span> <?= $codePostalU;?></p>
+		<p class="profil_info"><span class="head_info">Ville:</span> <?= $villeU;?></p>
 	</div>
-	<p class="profil_info clear">Infos Complementaires: <?= $infoU; ?></p>
-	<p><a href="index.php?page=edit_profile&<?=$idU;?>">Modifier ses infos</a></p>
+	<div class="profil_info_comp clear">
+		<h3 class="clear">Infos Complementaires:</h3>
+		<p class="profil_info_comp_txt"><?= $infoU; ?></p>
+	</div>
+	<p class="p_profil_modif_info"><a class="profil_modif_info" href="index.php?page=edit_profile&<?=$idU;?>">Modifier ses infos</a></p>
 	<?php require("apps/profile_admin.php"); ?>
 </div>

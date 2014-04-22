@@ -86,6 +86,18 @@ a{
 	border-radius:0.3rem;
 }
 
+.head_info{
+	color:rgb(177,34,28);
+}
+
+.float_right{
+	float:right;
+}
+
+.float_left{
+	float:left;
+}
+
 /*  Header  */
 
 #main_header{
@@ -187,13 +199,6 @@ a{
 	border-radius:0.3rem;
 }
 
-.sub_register{
-	border:0.0625rem solid rgb(177,34,28);
-	border-radius:0.3rem;
-	background:white;
-	color:rgb(177,34,28);
-}
-
 .register_infos{
 	width:80%;
 	margin:0 auto;
@@ -211,6 +216,10 @@ a{
 }
 
 .sub_register{
+	border:0.0625rem solid rgb(177,34,28);
+	border-radius:0.3rem;
+	background:white;
+	color:rgb(177,34,28);
 	width:15%;
 	height:2rem;
 }
@@ -226,14 +235,78 @@ a{
 .div_profil_infos{
 	float:left;
 	width:33.3333333%;
+	margin-bottom:1rem;
 }
 
 .profil_info{
 	margin-left:5%;
 }
 
+.p_profil_modif_info{
+	text-align:center;
+	margin-bottom:1rem;
+}
 
+.profil_info_comp{
+	width:80%;
+	margin:1rem auto;
+	text-align:center;
+}
 
+.profil_modif_info{
+	border:0.0625rem solid rgb(177,34,28);
+	color:rgb(177,34,28);
+	border-radius:0.3rem;
+}
+
+.profil_modif_info:hover{
+	background:rgb(177,34,28);
+	color:white;
+}
+
+/*  Livre D'or  */
+
+.div_livre_or{
+	width:80%;
+	margin:1rem auto;
+	border-bottom:0.0625rem solid rgb(177,34,28);
+}
+
+.div_livre_or:last-child{
+	border:none;
+}
+
+.comment_txt{
+	text-decoration:underline;
+}
+
+.form_livre_or{
+	text-align:center;
+}
+
+.livre_or_info{
+	margin-bottom:1rem;
+}
+
+.sub_livre_or{
+	border:0.0625rem solid rgb(177,34,28);
+	border-radius:0.3rem;
+	background:white;
+	color:rgb(177,34,28);
+	width:15%;
+	height:2rem;
+	margin:1rem 0 1rem 0;
+}
+
+.sub_livre_or:hover{
+	background:rgb(177,34,28);
+	color:white;
+	cursor:pointer;
+}
+
+.livre_or_comment{
+	margin:1rem 0;
+}
 
 /*  Footer  */
 
@@ -267,8 +340,6 @@ a{
 	font-family: 'sf_wasabiregular';
 	border-bottom:1rem rgb(177,34,28) solid;
 }
-
-
 
 /*  ???  */
 .submit{
