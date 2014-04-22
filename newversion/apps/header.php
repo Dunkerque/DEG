@@ -1,7 +1,6 @@
 
 <?php
 $erreur = '';
-
 if(isset($_SESSION['login']))
 {
 	$request_checkLogin = 'SELECT * FROM users WHERE login = "'.$_SESSION['login'].'"';
@@ -14,7 +13,7 @@ if(isset($_SESSION['login']))
 	$prenomU = htmlentities($data['prenom']);
 	$adresseU = htmlentities($data['adresse']);
 	$codePostalU = htmlentities($data['code_postal']);
-	$villeU = htmlentities($data['ville']);
+	$villeU = intval($data['ville']);
 	$emailU = htmlentities($data['email']);
 	$infoU = htmlentities($data['info_complementaire']);
 	$date = strftime("%A %d %B %Y", strtotime($data['register_date']));
@@ -24,7 +23,7 @@ if(isset($_SESSION['login']))
 
 	if($_SESSION['login'] == $data['login'] && $_SESSION['pass'] == $data['password'])
 	{
-		$page_login = 'apps/modules/logged.php';
+		$page_login = 'apps/logged.php';
 	}
 	else
 	{
@@ -65,7 +64,7 @@ else
 		else
 			$erreur = "Erreur Internet";
 	}
-	$page_login = "apps/modules/login.php";
+	$page_login = "apps/login.php";
 	
 }
 require("views/header.html");

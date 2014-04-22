@@ -1,17 +1,5 @@
 <p style="text-align:center;"><?= $message; ?></p>
-<div class="content main_div">
-	<h2>Livre d'or</h2>
-	<br />
-	<p>Le <?= $dateA," ", $heure; ?></p>
-	<br />
-	<form action="" method="POST" name="form_livre_or">
-		<div class="form_livre_or">
-			<textarea name="commentaire" cols="100" rows="12" value="" placeholder="Si vous désirez laisser vos impression c'est ici !"></textarea>
-			<input type="submit" value="Envoyer">
-		</div>
-	</form>
-	<p>From: <?= $login; ?></p><br />
-</div>
+<?php require('apps/formLivreOr.php'); ?>
 <div>
-	<?php require('apps/modules/display_livreOr.php');?>
+	<?php require('apps/display_livreOr.php');?>
 </div>

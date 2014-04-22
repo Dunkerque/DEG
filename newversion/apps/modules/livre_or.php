@@ -1,7 +1,6 @@
 <?php	
 $dateA = htmlentities(date("Y-m-d"));
 $signature = "";
-$notLogged = "";
 $message ="";
 
 if(isset($_SESSION['msg_success']))
@@ -29,11 +28,13 @@ if(isset($_SESSION['msg_success']))
 				$message = "Une erreur est survenue";
 			}
 		}
-		require("views/livre_or.html");
 	} 
-	else 
-		$notLogged = "Veuillez vous connectez pour voir le contenu";
-		require("views/no_session.html");
+	else{
+		$message = "Veuillez vous connectez pour voir le contenu";
+	}
+require("views/livre_or.html");
+
+
 ?>
 
 <!-- ajouter submit -->

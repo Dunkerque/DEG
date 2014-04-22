@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-require('apps/modules/config.php');
+require('apps/config.php');
 // PHP Linux  
 setlocale(LC_ALL, 'fr_CA');  
 // PHP Windows  

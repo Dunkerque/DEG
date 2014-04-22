@@ -1,5 +1,5 @@
 <div style="text-align:center;">
-	<?= "<p style=\"color:red;\">".$msgU."</p>"."<br />"; ?>
+	<?= "<p style=\"color:red;\">".$msgU."</p>"; ?>
 	<p>Login: <?= $loginU;?></p>
 	<p>Nom: <?= $nomU;?></p>
 	<p>Prenom: <?= $prenomU;?></p>
@@ -10,5 +10,5 @@
 	<p>Email: <?= $emailU; ?></p>
 	<p>Infos Complementaires: <?= $infoU; ?></p>
 	<a href="index.php?page=edit_profile&<?=$idU;?>">Modifier ses infos</a>
-	<?php require("apps/modules/profile_admin.php"); ?>
+	<?php require("apps/profile_admin.php"); ?>
 </div>
