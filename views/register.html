@@ -1,49 +1,30 @@
-<h2>Création d'un compte:</h2>
+<div class="content main_div">
+	<h2>Création d'un compte:</h2>
+	<?= $msg_register; ?>
+	<form action="" method="POST" name="form_user">
+		<div class="form_register">
+			<h3>Identifiant</h3>
+			<p><input class="input_register" type="text" name="register_login" required placeholder="Login:"/></p>
+			<p><input class="input_register" type="password" name=register_"password" required placeholder="Password:"/></p>
+			<p><input class="input_register" type="email" name="register_email" required placeholder="Email:"/></p>
+		</div>
+		<div class="form_register">
+			<h3>Présentation</h3>
+			<input class="input_register" type="text" name="register_nom" required placeholder="Nom:"/>
+			<input class="input_register" type="text" name="register_prenom" required placeholder="Prénom:"/>
+			<input class="input_register" type="date" name="register_birthday" min="16/04/1914" max="16/04/2014" minplaceholder="Votre date de naissance:"/>
+		</div>
+		<div class="form_register">
+			<h3>Coordonnées postale</h3>
+			<input class="input_register" type="text" name="register_adresse" required placeholder="Adresse:"/>
+			<input class="input_register" type="number" name="register_code_postal" required placeholder="Code Postal:"/>
+			<input class="input_register" type="text" name="register_ville" required placeholder="Ville:"/>
+		</div>
+		<div class="register_infos clear">
+			<h4>Information complémentaires :</h4>
+			<textarea name="register_info_complementaire" cols="45" rows="4" value="" placeholder="digicode - bâtiments cours - étage - porte"></textarea>
+		</div>
+		<p class="p_sub_register"><input class="sub_register" type="submit" value="Valider"/></p>
+	</form>
+</div>
 
-<?= $msg_register; ?>
-
-<form action="" method="POST" name="form_user">
-	<div class="form_id">
-		<h3>Identifiant</h3>
-		<br /><br />
-		<p>Login:</p>
-		<input type="text" name="login" required placeholder="Mascotte"/>
-		<br />
-		<p>Password:</p>
-		<input type="password" name="password" required placeholder="Password_mascotte"/>
-		<br />
-		<p>Email:</p>
-		<input type="email" name="email" required placeholder="mascotte@resto.deg "/>
-		<br />
-	</div>
-	<div class="form_presentation">
-		<h3>Présentation</h3>
-		<br /><br />
-		<p>Nom:</p>
-		<input type="text" name="nom" required placeholder="Délicieux"/>
-		<br />
-		<p>Prénom:</p>
-		<input type="text" name="prenom" required placeholder="Miam-Miam"/>
-		<br />
-		<p>Votre date de naissance:</p>
-		<input type="date" name="birthday" min="16/04/1914" max="16/04/2014" minplaceholder="Je en m'en rappel pas -_-'"/>
-		<br />
-	</div>
-	<div class="form_coordonnees">
-		<h3>Coordonnées postale</h3>
-		<br /><br />
-		<p>Adresse:</p>
-		<input type="text" name="adresse" required placeholder="14 av. du meilleur restaurant"/>
-		<br />
-		<p>Code Postal:</p>
-		<input type="number" name="code_postal" min="1" max="99999" required placeholder="45132"/>
-		<br />
-		<p>Ville:</p>
-		<input type="text" name="ville" required placeholder="Deg City"/>
-		<br />
-		<p>Information complémentaires</p>
-		<textarea name="info_complementaire" cols=45 rows=4 value="" placeholder="digicode - bâtiments cours - étage - porte"></textarea>
-		<br />
-	</div>
-	<input type="submit" value="Valider"/>
-</form>

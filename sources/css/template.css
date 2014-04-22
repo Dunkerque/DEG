@@ -46,6 +46,14 @@ h3{
 	color:rgb(177,34,28);
 }
 
+h4{
+	font-family:'sf_wasabiregular';
+	font-size:1.1rem;
+	margin:1rem 0 1rem 1rem;
+	color:rgb(177,34,28);
+}
+
+
 .p_section{
 	margin:1rem 1rem 1rem 1rem;
 }
@@ -54,9 +62,21 @@ a{
 	text-decoration:none;
 }
 
+.clear{
+	clear:both;
+}
+
+.overflow{
+	overflow:hidden;
+}
+
 .content{
 	width:62.5rem;
 	margin:0 auto;
+}
+
+.error_msg{
+	color:red;
 }
 
 .main_div{
@@ -65,6 +85,8 @@ a{
 	border:0.0625rem rgb(177,34,28) solid;
 	border-radius:0.3rem;
 }
+
+/*  Header  */
 
 #main_header{
 	background:rgb(177,34,28);
@@ -113,11 +135,11 @@ a{
 	line-height:2rem;
 }
 
-.input_text{
+.login_input_text{
 	width:35%;
 }
 
-.input_pass{
+.login_input_pass{
 	width:35%;
 }
 
@@ -152,6 +174,69 @@ a{
 	color:rgb(177,34,28);
 }
 
+/*  Register  */
+
+.form_register{
+	float:left;
+	width:33.333333%;
+}
+
+.input_register{
+	padding:none;
+	margin:0;
+	border-radius:0.3rem;
+}
+
+.sub_register{
+	border:0.0625rem solid rgb(177,34,28);
+	border-radius:0.3rem;
+	background:white;
+	color:rgb(177,34,28);
+}
+
+.register_infos{
+	width:80%;
+	margin:0 auto;
+	text-align:center;
+}
+
+.input_register{
+	width:50%;
+	margin:0 0 1rem 5%;
+}
+
+.p_sub_register{
+	text-align:center;
+	margin:1rem 0 1rem 0;
+}
+
+.sub_register{
+	width:15%;
+	height:2rem;
+}
+
+.sub_register:hover{
+	background:rgb(177,34,28);
+	color:white;
+	cursor:pointer;
+}
+
+/*  Profil  */
+
+.div_profil_infos{
+	float:left;
+	width:33.3333333%;
+}
+
+.profil_info{
+	margin-left:5%;
+}
+
+
+
+
+/*  Footer  */
+
 #main_footer{
 	background:rgb(254,244,201);
 }
@@ -177,29 +262,16 @@ a{
 	color:rgb(177,34,28);
 }
 
-.form_id{
-	float: left;
-	width: 30%;
-	margin-left: 3%;
-}
-
-.form_presentation{
-	float: left;
-	width: 30%;
-}
-
-.form_coordonnees{
-	float: left;
-	width: 30%;
-	margin-right: 3%;
-}
 .footer{
 	text-align:center;
 	font-family: 'sf_wasabiregular';
 	border-bottom:1rem rgb(177,34,28) solid;
 }
 
+
+
+/*  ???  */
 .submit{
 	float: right;
-	width: 10%;
+	width:10%;
 }
