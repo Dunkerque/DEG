@@ -16,6 +16,7 @@ if(isset($_SESSION['login']))
 	$codePostalU = htmlentities($data['code_postal']);
 	$villeU = htmlentities($data['ville']);
 	$emailU = htmlentities($data['email']);
+	$infoU = htmlentities($data['info_complementaire']);
 	$date = strftime("%A %d %B %Y", strtotime($data['register_date']));
 	$date = mb_convert_encoding($date, 'utf-8');
 	$date = ucwords(htmlentities($date));

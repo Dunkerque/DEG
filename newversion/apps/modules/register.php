@@ -22,7 +22,7 @@
 		$ligne = mysqli_fetch_assoc($res_checklogin);
 
 		if (!mysqli_num_rows($res_checklogin)) {
-			$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, birthday,fidel_point)
+			$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, register_date,fidel_point)
 			VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'","'.$fidelpoint.'")';
 			$res_insert_user = mysqli_query($db, $insert_user);
 			$msg_register = 'Votre compte à bien été créé <br /><br />';

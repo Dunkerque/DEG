@@ -1,11 +1,11 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+require('apps/modules/config.php');
 // PHP Linux  
 setlocale(LC_ALL, 'fr_CA');  
 // PHP Windows  
 setlocale(LC_ALL, 'frc');  
 session_start();
-$db = mysqli_connect("localhost","root","","restodeg");
 /*| Il faut vérifier si la connection mysql a reussi ! |*/
 if($db)
 {
@@ -19,7 +19,6 @@ if($db)
 	}
 	else
 	   header('location:index.php?page=home');
-	require('apps/modules/config.php');
 	require("apps/skel.php");
 	
 }
