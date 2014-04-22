@@ -28,7 +28,7 @@ if(isset($_SESSION['login']))
 	}
 	else
 	{
-		require("logout.php");
+		require("apps/modules/logout.php");
 	}
 }
 else 

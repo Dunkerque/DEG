@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.4
+-- version 4.0.6deb1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mar 22 Avril 2014 à 16:50
--- Version du serveur :  5.6.15-log
--- Version de PHP :  5.5.8
+-- Client: localhost
+-- Généré le: Ven 18 Avril 2014 à 14:21
+-- Version du serveur: 5.5.35-0ubuntu0.13.10.2
+-- Version de PHP: 5.5.3-1ubuntu2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,16 +17,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `restodeg`
+-- Base de données: `restodeg`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commandes`
+-- Structure de la table `Commandes`
 --
 
-CREATE TABLE IF NOT EXISTS `commandes` (
+CREATE TABLE IF NOT EXISTS `Commandes` (
   `id_cmd` int(11) NOT NULL AUTO_INCREMENT,
   `a_emporter` tinyint(1) DEFAULT NULL,
   `livraison` tinyint(1) DEFAULT NULL,
@@ -52,22 +52,13 @@ CREATE TABLE IF NOT EXISTS `commandes` (
 --
 
 CREATE TABLE IF NOT EXISTS `livre_or` (
-  `id_livre_or` int(11) NOT NULL AUTO_INCREMENT,
+  `id_livre_or` int(11) NOT NULL,
   `date` date DEFAULT NULL,
   `commentaires` varchar(45) DEFAULT NULL,
   `users_id_users` mediumint(9) NOT NULL,
   PRIMARY KEY (`id_livre_or`),
   KEY `fk_livre_or_users1_idx` (`users_id_users`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Contenu de la table `livre_or`
---
-
-INSERT INTO `livre_or` (`id_livre_or`, `date`, `commentaires`, `users_id_users`) VALUES
-(1, '2014-04-22', 'bonjour', 1),
-(2, '2014-04-22', 'teaaaa', 2),
-(3, '2014-04-22', 'Je suis lÃ ', 2);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -135,29 +126,28 @@ CREATE TABLE IF NOT EXISTS `users` (
   `code_postal` varchar(45) NOT NULL,
   `ville` varchar(45) NOT NULL,
   `info_complementaire` varchar(45) DEFAULT NULL,
-  `register_date` date DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
   `fidel_point` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id_users`),
   UNIQUE KEY `id_users_UNIQUE` (`id_users`),
   UNIQUE KEY `login_UNIQUE` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `info_complementaire`, `register_date`, `fidel_point`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 'admin@admin.com', 'root', 'root', '3 rue de la papeterie', '525856', 'Cachan', NULL, '2006-12-11', 10),
-(2, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 0, 'test@test.com', 'test', 'test', 'test', '25252', 'test', 'test', '2013-10-09', 1);
+INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `info_complementaire`, `birthday`, `fidel_point`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 'admin@admin.com', 'root', 'root', '3 rue de la papeterie', '525856', 'Cachan', NULL, '2006-12-11', 10);
 
 --
 -- Contraintes pour les tables exportées
 --
 
 --
--- Contraintes pour la table `commandes`
+-- Contraintes pour la table `Commandes`
 --
-ALTER TABLE `commandes`
+ALTER TABLE `Commandes`
   ADD CONSTRAINT `fk_Commandes_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_Commandes_plats1` FOREIGN KEY (`plats_id_plats`) REFERENCES `plats` (`id_plats`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Commandes_menus1` FOREIGN KEY (`menus_id_menus`) REFERENCES `menus` (`id_menus`) ON DELETE NO ACTION ON UPDATE NO ACTION;
