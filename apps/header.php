@@ -13,7 +13,7 @@ if(isset($_SESSION['login']))
 	$prenomU = htmlentities($data['prenom']);
 	$adresseU = htmlentities($data['adresse']);
 	$codePostalU = htmlentities($data['code_postal']);
-	$villeU = intval($data['ville']);
+	$villeU = htmlentities($data['ville']);
 	$emailU = htmlentities($data['email']);
 	$infoU = htmlentities($data['info_complementaire']);
 	$date = strftime("%A %d %B %Y", strtotime($data['register_date']));

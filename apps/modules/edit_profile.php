@@ -13,28 +13,52 @@ if (isset($_SESSION["login"]))
 			}
 			else
 			{
+				if (!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['update_email']))
+                {
+                    $msg = "L'adresse E-mail n'a pas un format valide";
+                }
 
-			}
+                elseif (!preg_match("#^[a-zA-Z -]{3,32}$#",$_POST["update_name"]))
+                {
+                	$msg = "Le nom ne peut contenir que des lettres ne pas dépasser 32 caractères";
+                	echo "test";
+                }
 
+                elseif (!preg_match("#^[a-zA-Z -]{3,32}$#",$_POST["update_surname"]))
+                {
+                	$msg = "Le prénom ne peut contenir que des lettres ne pas dépasser 32 caractères";
+                }
 
-		}
-		if(isset($_POST['update_pass'],$_POST['update_adresse'],$_POST['update_cp'],$_POST['update_ville'], $_POST['update_email']))
-		{
-			$modif_adresse = mysqli_real_escape_string($db, $_POST['update_adresse']);
-			$modif_cp = mysqli_real_escape_string($db, $_POST['update_cp']);
-			$modif_ville = mysqli_real_escape_string($db, $_POST['update_ville']);
-			$modif_email = mysqli_real_escape_string($db, $_POST['update_email']);
-			$modif_infos = mysqli_real_escape_string($db, $_POST['update_infos']);
+                elseif (!preg_match("#^[a-zA-Z0-9 -]{3,32}$#",$_POST["update_adress"]))
+                {
+                	$msg = "L'adresse ne peut contenir que des lettres et des chiffres, ainsi que 32 caractères maximum";
+                }
 
-			$modif_u = "UPDATE users SET password = '".$modif_pass."', email = '".$modif_email."', adresse = '".$modif_adresse."', code_postal = '".$modif_cp."',ville = '".$modif_ville."' WHERE id_users = $idU";
-			$request_edit = mysqli_query($db,$modif_u);
-			if($request_edit)
-			{
-				$_SESSION['pass'] = $u_pass;
-				header("Location:index.php?page=profile&idU&success=true");
-			}
-			else{
-				$msg = "Une erreur est survenue";
+                elseif (!preg_match("#^[0-9]{2,5}$#",$_POST["update_cp"]))
+                {
+                	$msg = "Le code postal ne peut contenir que des chiffres, sous format 9X ou 9XXXX";
+                }
+
+                elseif (!preg_match("#^[a-zA-Z -]{3,32}$#",$_POST["update_city"]))
+                {
+                	$msg = "La ville ne peut contenir que des lettres et ne pas dépasser 32 caractères";
+                }
+
+                else
+                {
+                	$modif_email = mysqli_real_escape_string($db, $_POST['update_email']);
+                	$modif_name = mysqli_real_escape_string($db, $_POST['update_name']);
+                	$modif_surname = mysqli_real_escape_string($db, $_POST['update_surname']);
+                	$modif_adress = mysqli_real_escape_string($db, $_POST['update_adress']);
+					$modif_cp = mysqli_real_escape_string($db, $_POST['update_cp']);
+					$modif_city = mysqli_real_escape_string($db, $_POST['update_city']);
+					$modif_infos = mysqli_real_escape_string($db, $_POST['update_info_comp']);
+
+					$modif_u = "UPDATE users SET email = '".$modif_email."', nom = '".$modif_name."', prenom = '".$modif_surname."',  adresse = '".$modif_adress."', code_postal = '".$modif_cp."',ville = '".$modif_city."', info_complementaire = '".$modif_infos."' WHERE id_users = $idU";
+					$request_edit = mysqli_query($db,$modif_u);
+
+                    header("location:index.php?page=profile&id=<?=$idU?>");
+                }
 			}
 		}
 		require('views/edit_profile.html');
@@ -50,8 +74,4 @@ else
 {
 	header("location:index.php?page=home");
 }
-
-
-
-
 ?>
