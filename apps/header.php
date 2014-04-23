@@ -12,8 +12,8 @@ if(isset($_SESSION['login']))
 	$nomU = htmlentities($data['nom']);
 	$prenomU = htmlentities($data['prenom']);
 	$adresseU = htmlentities($data['adresse']);
-	$codePostalU = htmlentities($data['code_postal']);
-	$villeU = intval($data['ville']);
+	$codePostalU = intval($data['code_postal']);
+	$villeU = htmlentities($data['ville']);
 	$emailU = htmlentities($data['email']);
 	$infoU = htmlentities($data['info_complementaire']);
 	$date = strftime("%A %d %B %Y", strtotime($data['register_date']));

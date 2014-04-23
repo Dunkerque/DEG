@@ -7,18 +7,19 @@ setlocale(LC_ALL, 'fr_CA');
 setlocale(LC_ALL, 'frc');  
 session_start();
 /*| Il faut vérifier si la connection mysql a reussi ! |*/
+$db = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if($db)
 {
 	$pagefiles = scandir("apps/modules");
-	$pageU = strtolower(htmlentities($_GET["page"]));
-	if(isset($_GET["page"])){
+	$page = "apps/modules/home.php";
+	if(isset($_GET["page"]))
+	{
+		$pageU = strtolower(htmlentities($_GET["page"]));
 		if (in_array("$pageU.php",$pagefiles))
 			$page = "apps/modules/$pageU.php";
 		else
 			$page = "apps/modules/404.php";
 	}
-	else
-	   header('location:index.php?page=home');
 	require("apps/skel.php");
 	
 }
