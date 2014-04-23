@@ -12,11 +12,7 @@ if(isset($_SESSION['login']))
 	$nomU = htmlentities($data['nom']);
 	$prenomU = htmlentities($data['prenom']);
 	$adresseU = htmlentities($data['adresse']);
-<<<<<<< HEAD
 	$codePostalU = htmlentities($data['code_postal']);
-=======
-	$codePostalU = intval($data['code_postal']);
->>>>>>> 2af602463676f99cc35de069d2d5922d28a36388
 	$villeU = htmlentities($data['ville']);
 	$emailU = htmlentities($data['email']);
 	$infoU = htmlentities($data['info_complementaire']);
