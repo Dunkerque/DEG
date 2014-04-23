@@ -71,6 +71,10 @@ a{
 	text-decoration:none;
 }
 
+p{
+	margin:0.5rem 0;
+}
+
 .clear{
 	clear:both;
 }

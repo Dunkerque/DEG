@@ -78,7 +78,7 @@ if (isset($_SESSION["login"]))
 					$modif_u = "UPDATE users SET email = '".$modif_email."', nom = '".$modif_name."', prenom = '".$modif_surname."',  adresse = '".$modif_adress."', code_postal = '".$modif_cp."',ville = '".$modif_city."', info_complementaire = '".$modif_infos."' WHERE id_users = $idU";
 					$request_edit = mysqli_query($db,$modif_u);
 
-                    header("location:index.php?page=profile&id=<?=$idU?>");
+                    header("location:index.php?page=profile&id=".$idU);
                 }
 			}
 		}
@@ -93,6 +93,6 @@ if (isset($_SESSION["login"]))
 
 else
 {
-	header("location:index.php?page=home");
+	header("location:index.php");
 }
 ?>

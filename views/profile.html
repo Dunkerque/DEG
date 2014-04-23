@@ -21,6 +21,9 @@
 		<h3 class="clear">Infos Complementaires:</h3>
 		<p class="profil_info_comp_txt"><?= $infoU; ?></p>
 	</div>
-	<p class="p_btn"><button class="btn" onclick="window.location='index.php?page=edit_profile&id=<?=$idU;?>'">Modifier ses infos</button></p>
+	<p class="p_btn">
+		<button class="btn" onclick="window.location='index.php?page=edit_profile&id=<?=$idU;?>'">Modifier ses infos</button>
+		<button class="btn" onclick="window.location='index.php?page=edit_mdp&id=<?=$idU;?>'">Modifier son mot de passe</button>
+	</p>
 	<?php require("apps/profile_admin.php"); ?>
 </div>

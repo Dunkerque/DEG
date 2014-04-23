@@ -1,6 +1,7 @@
 <div class="content main_div overflow">
+	<h2>Modifier ses informations</h2>
 	<p class="error_msg"><?=$msg;?></p>
-	<form action="index.php?page=edit_profile&id=2" method="post">
+	<form action="index.php?page=edit_profile&id=<?=$idU?>" method="post">
 		<div class="div_profil_infos">
 		<h3>Informations</h3>
 		<p><span class="head_info">Adresse Email : </span><input type="text" value="<?=$emailUForm;?>" name="update_email" required /></p>
@@ -22,5 +23,5 @@
 		</div>
 		<p class="p_btn"><input class="sub_medium" name="update_profil_sub" type="submit"></p>
 	</form>
-	<p class="p_btn"><button class="btn" onclick="window.location='index.php?page=profile&<?=$idU;?>'">Annuler</button></p>
+	<p class="p_btn"><button class="btn" onclick="window.location='index.php?page=profile&id=<?=$idU;?>'">Annuler</button></p>
 </div>
