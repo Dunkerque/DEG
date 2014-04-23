@@ -1,6 +1,28 @@
 <?php
 $msg ="";
 
+if (isset($_POST["update_profil_sub"]))
+{
+    $emailUForm = $_POST['update_email'];
+    $nameUForm = $_POST['update_name'];
+    $surnameUForm = $_POST['update_surname'];
+    $adressUForm = $_POST['update_adress'];
+    $cpUForm = $_POST['update_cp'];
+    $cityUForm = $_POST['update_city'];
+    $infosUForm = $_POST['update_info_comp'];
+}
+
+else
+{
+    $emailUForm = $emailU;
+    $nameUForm = $nomU;
+    $surnameUForm = $prenomU;
+    $adressUForm = $adresseU;
+    $cpUForm = $codePostalU;
+    $cityUForm = $villeU;
+    $infosUForm = $infoU;
+}
+
 if (isset($_SESSION["login"]))
 {
 	if ($_SESSION["login"] == $data["login"] && $_SESSION["pass"] == $data["password"])
@@ -57,7 +79,7 @@ if (isset($_SESSION["login"]))
 					$modif_u = "UPDATE users SET email = '".$modif_email."', nom = '".$modif_name."', prenom = '".$modif_surname."',  adresse = '".$modif_adress."', code_postal = '".$modif_cp."',ville = '".$modif_city."', info_complementaire = '".$modif_infos."' WHERE id_users = $idU";
 					$request_edit = mysqli_query($db,$modif_u);
 
-                    header("location:index.php?page=profile&id=$idU");
+                    header("location:index.php?page=profile&id=<?=$idU?>");
                 }
 			}
 		}
@@ -72,6 +94,6 @@ if (isset($_SESSION["login"]))
 
 else
 {
-	header("location:index.php");
+	header("location:index.php?page=home");
 }
 ?>
