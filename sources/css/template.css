@@ -1,3 +1,5 @@
+/*  Global  */
+
 @font-face {
     font-family: 'sf_wasabiregular';
     src: url('../fonts//regular/SF_Wasabi-webfont.eot');
@@ -53,6 +55,13 @@ h4{
 	color:rgb(177,34,28);
 }
 
+input[type="submit"]{
+	padding:0;
+}
+
+button{
+	padding:0;
+}
 
 .p_section{
 	margin:1rem 1rem 1rem 1rem;
@@ -82,7 +91,7 @@ a{
 .main_div{
 	margin-top:1rem;
 	margin-bottom:1rem;
-	border:0.0625rem rgb(177,34,28) solid;
+	border:0.0625rem rgb(153,0,0) solid;
 	border-radius:0.3rem;
 }
 
@@ -98,10 +107,63 @@ a{
 	float:left;
 }
 
+.p_btn{
+	text-align:center;
+	margin-bottom:1rem;
+}
+
+.btn{
+	border:0.0625rem solid rgb(177,34,28);
+	background:white;
+	color:rgb(177,34,28);
+	border-radius:0.3rem;
+	margin:1rem 0 1rem 0;
+	transition:all 0.5s;
+	cursor:pointer;
+}
+
+.btn:hover{
+	background:rgb(177,34,28);
+	color:white;
+}
+
+.sub_small{
+	border:0.0625rem solid rgb(177,34,28);
+	border-radius:0.3rem;
+	background:white;
+	color:rgb(177,34,28);
+	margin:1rem 0 1rem 0;
+	transition:all 0.5s;
+}
+
+.sub_small:hover{
+	background:rgb(177,34,28);
+	color:white;
+	cursor:pointer;
+}
+
+.sub_medium{
+	border:0.0625rem solid rgb(177,34,28);
+	border-radius:0.3rem;
+	background:white;
+	color:rgb(177,34,28);
+	width:15%;
+	height:2rem;
+	margin:1rem 0 1rem 0;
+	transition:all 0.5s;
+}
+
+.sub_medium:hover{
+	background:rgb(177,34,28);
+	color:white;
+	cursor:pointer;
+}
+
 /*  Header  */
 
 #main_header{
 	background:rgb(177,34,28);
+	border-bottom:0.125rem solid rgb(153,0,0);
 }
 
 .header{
@@ -161,8 +223,11 @@ a{
 	color:rgb(177,34,28);
 }
 
+/*  Nav  */
+
 #main_nav{
 	background:rgb(254,244,201);
+	border-bottom:0.125rem solid rgb(153,0,0);
 }
 
 .main_nav{
@@ -184,6 +249,12 @@ a{
 	line-height:2rem;
 	height:2rem;
 	color:rgb(177,34,28);
+	transition:all 0.5s;
+}
+
+.main_nav>li>a:hover{
+	background:rgb(153,0,0);
+	color:white;
 }
 
 /*  Register  */
@@ -242,26 +313,10 @@ a{
 	margin-left:5%;
 }
 
-.p_profil_modif_info{
-	text-align:center;
-	margin-bottom:1rem;
-}
-
 .profil_info_comp{
 	width:80%;
 	margin:1rem auto;
 	text-align:center;
-}
-
-.profil_modif_info{
-	border:0.0625rem solid rgb(177,34,28);
-	color:rgb(177,34,28);
-	border-radius:0.3rem;
-}
-
-.profil_modif_info:hover{
-	background:rgb(177,34,28);
-	color:white;
 }
 
 /*  Livre D'or  */
@@ -286,22 +341,6 @@ a{
 
 .livre_or_info{
 	margin-bottom:1rem;
-}
-
-.sub_livre_or{
-	border:0.0625rem solid rgb(177,34,28);
-	border-radius:0.3rem;
-	background:white;
-	color:rgb(177,34,28);
-	width:15%;
-	height:2rem;
-	margin:1rem 0 1rem 0;
-}
-
-.sub_livre_or:hover{
-	background:rgb(177,34,28);
-	color:white;
-	cursor:pointer;
 }
 
 .livre_or_comment{
@@ -338,7 +377,7 @@ a{
 .footer{
 	text-align:center;
 	font-family: 'sf_wasabiregular';
-	border-bottom:1rem rgb(177,34,28) solid;
+	border-bottom:2rem rgb(177,34,28) solid;
 }
 
 /*  ???  */

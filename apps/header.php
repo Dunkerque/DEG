@@ -3,7 +3,7 @@
 $erreur = '';
 if(isset($_SESSION['login']))
 {
-	$request_checkLogin = 'SELECT * FROM users WHERE login = "'.$_SESSION['login'].'"';
+	$request_checkLogin = 'SELECT * FROM users WHERE login = "'.$_SESSION['login'].'" && password = "'.$_SESSION['pass'].'"';
 	$res = mysqli_query($db, $request_checkLogin);
 	/* INITIATION DES VARIABLES NECESSAIRES */
 	$data = mysqli_fetch_assoc($res);
@@ -30,7 +30,7 @@ if(isset($_SESSION['login']))
 		require("apps/modules/logout.php");
 	}
 }
-else 
+else
 {
 	if(isset($_POST['login_user'], $_POST['login_pass']))
 	{
@@ -54,7 +54,7 @@ else
 					else
 					$_SESSION['admin'] = 0;
 					header("Location:index.php?$url");
-				}	
+				}
 				else
 					$erreur = 'Password incorrect';
 			}
@@ -65,7 +65,7 @@ else
 			$erreur = "Erreur Internet";
 	}
 	$page_login = "apps/login.php";
-	
+
 }
 require("views/header.html");
 ?>
