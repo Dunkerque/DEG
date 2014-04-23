@@ -323,6 +323,14 @@ p{
 	text-align:center;
 }
 
+/*  Page admin  */
+
+.div_edit_users{
+	border-bottom:0.0625rem solid rgb(177,34,28);
+	width:80%;
+	margin:1rem auto;
+}
+
 /*  Livre D'or  */
 
 .div_livre_or{
