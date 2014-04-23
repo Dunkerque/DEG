@@ -43,7 +43,6 @@ if (isset($_SESSION["login"]))
                 elseif (!preg_match("#^[a-zA-Z -]{3,32}$#",$_POST["update_name"]))
                 {
                 	$msg = "Le nom ne peut contenir que des lettres ne pas dépasser 32 caractères";
-                	echo "test";
                 }
 
                 elseif (!preg_match("#^[a-zA-Z -]{3,32}$#",$_POST["update_surname"]))
