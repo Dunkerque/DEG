@@ -5,15 +5,7 @@
 		<div class="form_edit_menu">
 			<p><input class="input_edit_menu" type="text" name="nom_menu" required placeholder="Nom du menu" value="<?= $edit_nom_menu; ?>"/></p>
 			<p><input class="input_edit_menu" type="text" name="contenu_menu" required placeholder="Contenu du menu" value=""/></p>
-			<!-- <select name="contenu_menu" value="<?= $edit_contenu_menu; ?>"> 
-				<option value="<?= $namePlats; ?>"></option>
-				<option value="<?= $namePlats; ?>"></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-			</select> -->
+			<?php require("views/scroll_plats.html");?>
 			<p><input class="input_edit_menu" type="text" name="tarif_menu" required placeholder="Tarif du menu" value="<?= $edit_tarif_menu; ?>"/></p>
 		</div>
 

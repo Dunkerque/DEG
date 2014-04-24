@@ -59,6 +59,10 @@ input[type="submit"]{
 	padding:0;
 }
 
+.input{
+	width:100%;
+}
+
 button{
 	padding:0;
 }
@@ -359,6 +363,7 @@ p{
 
 .profil_info{
 	margin-left:5%;
+	margin-right:5%;
 }
 
 .profil_info_comp{
@@ -373,6 +378,27 @@ p{
 	border-bottom:0.0625rem solid rgb(177,34,28);
 	width:80%;
 	margin:1rem auto;
+}
+
+/*  Form Modif MDP  */
+
+.form_edit_mdp{
+	width:80%;
+	margin:0 auto;
+}
+
+.old_mdp{
+	width:40%;
+}
+
+.new_mdp{
+	float:left;
+	width:40%;
+}
+
+.verif_new_mdp{
+	float:left;
+	width:40%;
 }
 
 /*  Livre D'or  */
