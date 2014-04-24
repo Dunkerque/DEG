@@ -8,6 +8,8 @@ setlocale(LC_ALL,  'fr_FR.utf8','fra');
 session_start();
 /*| Il faut vérifier si la connection mysql a reussi ! |*/
 $db = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+// Définit le jeu de caractères en utf8
+mysqli_set_charset ($db, "utf8");
 if($db)
 {
 	$pagefiles = scandir("apps/modules");
