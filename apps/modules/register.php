@@ -35,7 +35,6 @@ if(isset($_POST['form_user']))
 		empty($_POST["register_adress"]) ||
 		empty($_POST["register_cp"]) ||
 		empty($_POST["register_date"]) ||
-		empty($_POST["register_info_comp"]) ||
 		empty($_POST["register_city"]))
 		{
 			$msg_register = "Des champs requis sont manquants";
