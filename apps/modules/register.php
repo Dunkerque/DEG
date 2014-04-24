@@ -20,7 +20,7 @@ if (isset($_POST["form_user"]))
     $surnameUForm = $_POST['register_prenom'];
     $adressUForm = $_POST['register_adress'];
     $cpUForm = $_POST['register_cp'];
-    $dateUForm = $_POST['register_date'];
+    $dateUForm = $_POST['register_birthday'];
     $infosUForm = $_POST['register_info_comp'];
     $cityUForm = $_POST['register_city'];
 }
@@ -34,7 +34,7 @@ if(isset($_POST['form_user']))
 		empty($_POST["register_prenom"]) ||
 		empty($_POST["register_adress"]) ||
 		empty($_POST["register_cp"]) ||
-		empty($_POST["register_date"]) ||
+		empty($_POST["register_birthday"]) ||
 		empty($_POST["register_city"]))
 		{
 			$msg_register = "Des champs requis sont manquants";
@@ -85,7 +85,7 @@ if(isset($_POST['form_user']))
 					$code_postal = mysqli_real_escape_string($db,$_POST['register_cp']);
 					$ville = mysqli_real_escape_string($db, $_POST['register_city']);
 					$info_complementaire = mysqli_real_escape_string($db, $_POST['register_info_comp']);
-					$birthday = mysqli_real_escape_string($db, $_POST['register_date']);
+					$birthday = mysqli_real_escape_string($db, $_POST['register_birthday']);
 					$point = "1";
 					$fidelpoint = intval($point);
 					$checklogin = 'SELECT * FROM users WHERE login = "'.$login.'"';
@@ -93,9 +93,10 @@ if(isset($_POST['form_user']))
 					$ligne = mysqli_fetch_assoc($res_checklogin);
 					if (!$ligne) 
 					{
-						$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, register_date,fidel_point)
-						VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'","'.$fidelpoint.'")';
+						$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, birthday,register_date,fidel_point)
+						VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'",NOW(),"'.$fidelpoint.'")';
 						$res_insert_user = mysqli_query($db, $insert_user);
+						echo $insert_user;
 						$msg_register = 'Votre compte à bien été créé';
 					} 
 					else 
