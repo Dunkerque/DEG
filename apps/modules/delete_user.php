@@ -2,21 +2,21 @@
 
 $msg = "";
 
+$idUser = htmlentities($_GET["iduser"]);
+
 if (isset($_SESSION["login"]))
 {
     if ($_SESSION["login"] == $data["login"] && $_SESSION["pass"] == $data["password"])
     {
         if ($_SESSION["admin"] === 1)
         {
-            if ($idSU === $_SESSION["id"])
+            if ($idUser === $_SESSION["id"])
             {
                 header("location:index.php?page=edit_users");
             }
 
             else
             {
-                $idUser = htmlentities($_GET["iduser"]);
-
                 $querySUser = 'SELECT * FROM users WHERE id_users = "'.$idUser.'"';
                 $resQuerySUser = mysqli_query($db,$querySUser);
                 $resSUser = mysqli_fetch_assoc($resQuerySUser);
