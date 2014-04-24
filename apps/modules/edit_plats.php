@@ -48,7 +48,7 @@ if(isset($_POST['form_edit_plats']))
 					{
 						$insert_plats = 'INSERT INTO plats (nom_plats,contenu_plats,tarif_plats)
 						VALUES ("'.$edit_nom_plats.'", "'.$edit_contenu_plats.'","'.$edit_tarif_plats.'")';
-						$res_insert_plats = mysqli_query($db, $insert_user);
+						$res_insert_plats = mysqli_query($db, $insert_plats);
 						$msg_plats = 'Votre plats à bien été créé';
 					} 
 					else 
