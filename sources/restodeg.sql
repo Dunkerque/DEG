@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 18 Avril 2014 à 14:21
+-- Généré le: Jeu 24 Avril 2014 à 09:21
 -- Version du serveur: 5.5.35-0ubuntu0.13.10.2
 -- Version de PHP: 5.5.3-1ubuntu2.2
 
@@ -52,13 +52,13 @@ CREATE TABLE IF NOT EXISTS `Commandes` (
 --
 
 CREATE TABLE IF NOT EXISTS `livre_or` (
-  `id_livre_or` int(11) NOT NULL,
+  `id_livre_or` int(11) NOT NULL AUTO_INCREMENT,
   `date` date DEFAULT NULL,
   `commentaires` varchar(45) DEFAULT NULL,
   `users_id_users` mediumint(9) NOT NULL,
   PRIMARY KEY (`id_livre_or`),
   KEY `fk_livre_or_users1_idx` (`users_id_users`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -127,18 +127,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ville` varchar(45) NOT NULL,
   `info_complementaire` varchar(45) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
+  `register_date` datetime NOT NULL,
   `fidel_point` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id_users`),
   UNIQUE KEY `id_users_UNIQUE` (`id_users`),
   UNIQUE KEY `login_UNIQUE` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `users`
---
-
-INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `info_complementaire`, `birthday`, `fidel_point`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 'admin@admin.com', 'root', 'root', '3 rue de la papeterie', '525856', 'Cachan', NULL, '2006-12-11', 10);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Contraintes pour les tables exportées
@@ -148,15 +142,15 @@ INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `
 -- Contraintes pour la table `Commandes`
 --
 ALTER TABLE `Commandes`
-  ADD CONSTRAINT `fk_Commandes_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_Commandes_menus1` FOREIGN KEY (`menus_id_menus`) REFERENCES `menus` (`id_menus`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Commandes_plats1` FOREIGN KEY (`plats_id_plats`) REFERENCES `plats` (`id_plats`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Commandes_menus1` FOREIGN KEY (`menus_id_menus`) REFERENCES `menus` (`id_menus`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Commandes_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `livre_or`
 --
 ALTER TABLE `livre_or`
-  ADD CONSTRAINT `fk_livre_or_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_livre_or_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `menus`
