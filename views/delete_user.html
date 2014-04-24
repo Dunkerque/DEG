@@ -19,12 +19,12 @@
 	</div>
 	<div class="profil_info_comp clear">
 		<h3 class="clear">Infos Complementaires:</h3>
-		<p class="profil_info_comp_txt"><?= $infosSU; ?></p>
+		<p class="profil_info_comp_txt"><?=$infosSU;?></p>
 	</div>
 	<p class="center"><button class="btn_large" onclick="window.location='index.php?page=edit_users'">Annuler</button></p>
-	<form action="index.php?page=delete_user" method="post">
+	<form action="index.php?page=delete_user&iduser=<?=$idUser?>" method="post">
 		<p class="alert head_info">--! Etes vous sûr de vouloir supprimer l'utilisateur? !--</p>
-		<p class="p_btn"><input class="sub_small" type="submit" value="Supprimer"></p>
+		<p class="p_btn"><input class="sub_small" type="submit" name="delete_user_sub" value="Supprimer"></p>
 
 	</form>
 </div>

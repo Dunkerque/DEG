@@ -24,6 +24,12 @@ if (isset($_SESSION["login"]))
             $infosSU = htmlentities($resSUser["info_complementaire"]);
             $registerDateSU = $resSUser["register_date"];
 
+            if (isset($_POST["delete_user_sub"]))
+            {
+                echo "delete";
+
+            }
+
             require("views/delete_user.html");
         }
 
