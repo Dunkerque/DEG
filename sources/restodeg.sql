@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 24 Avril 2014 à 11:52
+-- Généré le: Jeu 24 Avril 2014 à 12:04
 -- Version du serveur: 5.5.37-0ubuntu0.13.10.1
 -- Version de PHP: 5.5.3-1ubuntu2.3
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `plats` (
   PRIMARY KEY (`id_plats`),
   UNIQUE KEY `id_plats_UNIQUE` (`id_plats`),
   UNIQUE KEY `nom_plats_UNIQUE` (`nom_plats`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `plats`
@@ -110,7 +110,8 @@ INSERT INTO `plats` (`id_plats`, `nom_plats`, `contenu_plats`, `tarif_plats`) VA
 (2, 'Onigiri saumon', 'riz, algue, saumon', '2,80'),
 (3, 'Onigiri bonite', 'riz, algue, bonite', '2,80'),
 (4, 'Katsudon', 'porc pané, oeuf, riz', '7.80'),
-(5, 'Gyuudon', 'lamelles de boeuf, oeuf,oignons, riz', '7.80');
+(5, 'Gyuudon', 'lamelles de boeuf, oeuf,oignons, riz', '7.80'),
+(6, 'Oyakodon', 'poulet oeuf riz dashi mirin suace soja', '7,80');
 
 -- --------------------------------------------------------
 
