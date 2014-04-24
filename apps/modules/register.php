@@ -96,7 +96,6 @@ if(isset($_POST['form_user']))
 						$insert_user = 'INSERT INTO users (login, password, email, nom, prenom, adresse, code_postal, ville, info_complementaire, birthday,register_date,fidel_point)
 						VALUES ("'.$login.'", "'.$password.'","'.$email.'","'.$nom.'","'.$prenom.'","'.$adresse.'","'.$code_postal.'","'.$ville.'","'.$info_complementaire.'","'.$birthday.'",NOW(),"'.$fidelpoint.'")';
 						$res_insert_user = mysqli_query($db, $insert_user);
-						echo $insert_user;
 						$msg_register = 'Votre compte à bien été créé';
 					} 
 					else 

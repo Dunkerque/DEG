@@ -2,9 +2,9 @@
 header('Content-Type: text/html; charset=utf-8');
 require('apps/config.php');
 // PHP Linux  
-setlocale(LC_ALL, 'fr_CA');  
+setlocale(LC_ALL,  'fr_FR.utf8','fra');  
 // PHP Windows  
-setlocale(LC_ALL, 'frc');  
+// setlocale(LC_ALL, 'frc');  
 session_start();
 /*| Il faut vérifier si la connection mysql a reussi ! |*/
 $db = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);

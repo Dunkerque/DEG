@@ -1,6 +1,12 @@
 <?php
 $msg ="";
 
+if(isset($_SESSION['pass_success']))
+{
+    $msg = htmlentities($_SESSION['pass_success']);
+    unset($_SESSION['pass_success']);
+}
+
 if (isset($_SESSION["login"]))
 {
     if ($_SESSION["login"] == $data["login"] && $_SESSION["pass"] == $data["password"])
@@ -41,7 +47,7 @@ if (isset($_SESSION["login"]))
 
                     $_SESSION["pass_success"] = "Le mot de passe à bien été changé";
 
-                    header("location:index.php?page=profile&id=".$idU);
+                    header("location:index.php?$url");
                 }
             }
         }
