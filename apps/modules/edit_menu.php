@@ -3,13 +3,20 @@
 	$edit_nom_menu = '';
 	$edit_contenu_menu = '';
 	$edit_tarif_menu = '';
-    $t ="";
+
+    $showAll = "SELECT * FROM plats";
+	$res = mysqli_query($db, $showAll);
+	while($data = mysqli_fetch_assoc($res))
+	{
+		$namePlats = $data['nom_plats'];
+		//var_dump($data);
+	}
+
 if (isset($_POST["form_edit_menu"]))
 {
     $edit_nom_menu = $_POST['nom_menu'];
     $edit_contenu_menu = $_POST['contenu_menu'];
-    $edit_tarif_menu = $_POST['tarif_menu'];
-    
+    $edit_tarif_menu = $_POST['tarif_menu'];    
 }
 
 if(isset($_POST['form_edit_menu']))
@@ -32,7 +39,7 @@ if(isset($_POST['form_edit_menu']))
 		        	$msg_menu = "Le contenu du menu ne peut contenir que des lettres ne pas dépasser 128 caractères.";
 		        }
 
-		        elseif (!floatval(,$_POST["tarif_menu"]))
+		        elseif (!floatval($_POST["tarif_menu"]))
 		        {
 		        	$msg_menu = "Le prix du menu ne peut contenir que des chiffres décimaux.";
 		        }
@@ -61,5 +68,5 @@ if(isset($_POST['form_edit_menu']))
 }
 
 
-require("views/menu.html");
+require("views/edit_menu.html");
 ?>

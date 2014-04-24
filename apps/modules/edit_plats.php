@@ -3,7 +3,6 @@
 	$edit_nom_plats = '';
 	$edit_contenu_plats = '';
 	$edit_tarif_plats = '';
-    $t ="";
 if (isset($_POST["form_edit_plats"]))
 {
     $edit_nom_plats = $_POST['nom_plat'];
@@ -32,7 +31,7 @@ if(isset($_POST['form_edit_plats']))
 		        	$msg_plats = "Le contenu du plat ne peut contenir que des lettres ne pas dépasser 128 caractères.";
 		        }
 
-		        elseif (!floatval(,$_POST["tarif_plat"]))
+		        elseif (!floatval($_POST["tarif_plat"]))
 		        {
 		        	$msg_plats = "Le prix du plat ne peut contenir que des chiffres décimaux.";
 		        }
