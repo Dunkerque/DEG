@@ -7,7 +7,6 @@ if (isset($_SESSION["success_deleteU"]))
 	$msg = $_SESSION["success_deleteU"];
 	unset($_SESSION["success_deleteU"]);
 }
-
 $querySUsers = 'SELECT * FROM users ORDER BY login';
 $resQuerySUsers = mysqli_query($db,$querySUsers);
 

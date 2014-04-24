@@ -32,7 +32,7 @@ if(isset($_POST['form_edit_menu']))
 		        	$msg_menu = "Le contenu du menu ne peut contenir que des lettres ne pas dépasser 128 caractères.";
 		        }
 
-		        elseif (!floatval(,$_POST["tarif_menu"]))
+		        elseif (!floatval($_POST["tarif_menu"]))
 		        {
 		        	$msg_menu = "Le prix du menu ne peut contenir que des chiffres décimaux.";
 		        }
@@ -61,5 +61,5 @@ if(isset($_POST['form_edit_menu']))
 }
 
 
-require("views/menu.html");
+require("views/edit_menu.html");
 ?>
