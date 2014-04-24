@@ -26,8 +26,11 @@ if (isset($_SESSION["login"]))
 
             if (isset($_POST["delete_user_sub"]))
             {
-                echo "delete";
+                $queryDeleteU = 'DELETE FROM users WHERE id_users = "'.$idUser.'"';
+                $resQueryDeleteU = mysqli_query($db,$queryDeleteU);
 
+                $_SESSION["success_deleteU"] = "L'utilisateur à bien été supprimé";
+                header("location:index.php?page=edit_users");
             }
 
             require("views/delete_user.html");
