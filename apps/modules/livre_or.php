@@ -21,12 +21,10 @@ if(isset($_SESSION['msg_success']))
 		
 		else
 		{
-			$dateA = htmlentities(date("Y-m-d"));
-			$dateA = mysqli_real_escape_string($db,$dateA);
 			$content = trim($_POST['commentaire']);
 			$content = mysqli_real_escape_string($db,$_POST['commentaire']);
 			
-			$insert_comment = "INSERT INTO livre_or (`date`, commentaires, users_id_users) VALUES ('".$dateA."','".$content."', '".$idU."')";
+			$insert_comment = "INSERT INTO livre_or (`date`, commentaires, users_id_users) VALUES (NOW(),'".$content."', '".$idU."')";
 			$request = mysqli_query($db, $insert_comment);
 			$idArticle = mysql_insert_id($db);
 			if($request)

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 24 Avril 2014 à 09:21
+-- Généré le: Jeu 24 Avril 2014 à 11:00
 -- Version du serveur: 5.5.35-0ubuntu0.13.10.2
 -- Version de PHP: 5.5.3-1ubuntu2.2
 
@@ -53,12 +53,21 @@ CREATE TABLE IF NOT EXISTS `Commandes` (
 
 CREATE TABLE IF NOT EXISTS `livre_or` (
   `id_livre_or` int(11) NOT NULL AUTO_INCREMENT,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `commentaires` varchar(45) DEFAULT NULL,
   `users_id_users` mediumint(9) NOT NULL,
   PRIMARY KEY (`id_livre_or`),
   KEY `fk_livre_or_users1_idx` (`users_id_users`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `livre_or`
+--
+
+INSERT INTO `livre_or` (`id_livre_or`, `date`, `commentaires`, `users_id_users`) VALUES
+(2, '2014-04-24 00:00:00', 'test', 11),
+(3, '2014-04-24 00:00:00', 'test', 11),
+(4, '2014-04-24 10:56:28', 'test', 11);
 
 -- --------------------------------------------------------
 
@@ -132,7 +141,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id_users`),
   UNIQUE KEY `id_users_UNIQUE` (`id_users`),
   UNIQUE KEY `login_UNIQUE` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `info_complementaire`, `birthday`, `register_date`, `fidel_point`) VALUES
+(9, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 'admin@admin.com', 'Root', 'admin', '27 rue poupoutu', '93252', 'Orgeuil', '', NULL, '1975-05-25 00:00:00', 1),
+(10, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 0, 'test@test.com', 'membre', 'user', '25 rue cafto', '25252', 'bouca', '', NULL, '1985-02-25 00:00:00', 1),
+(11, 'tata', '90795a0ffaa8b88c0e250546d8439bc9c31e5a5e', 0, 'tata@tata.com', 'tata', 'tata', 'tata', '25252', 'tata', '', '1990-06-25', '2014-04-24 09:46:26', 1);
 
 --
 -- Contraintes pour les tables exportées
