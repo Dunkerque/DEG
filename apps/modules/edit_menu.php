@@ -8,14 +8,18 @@
 	if (isset($_POST["form_edit_menu"]))
 	{
 	    $edit_nom_menu = $_POST['nom_menu'];
-	    $edit_contenu_menu = $_POST['scroll_plat'];
+	    $edit_contenu_menu = $_POST['scroll_entrees'].', '.$_POST['scroll_plats'].', '.$_POST['scroll_desserts'].', '.$_POST['scroll_boissons'];
 	    $edit_tarif_menu = $_POST['tarif_menu'];    
 	}
+
 
 	if(isset($_POST['form_edit_menu']))
 	{
 		if (empty($_POST["nom_menu"]) ||
-			empty($_POST["scroll_plat"]) ||
+			empty($_POST["scroll_entrees"]) ||
+			empty($_POST["scroll_plats"]) ||
+			empty($_POST["scroll_desserts"]) ||
+			empty($_POST["scroll_boissons"]) ||
 			empty($_POST["tarif_menu"]))
 			{
 				$msg_menu = "Des champs requis sont manquants";
@@ -40,7 +44,7 @@
 					else
 					{
 						$edit_nom_menu = mysqli_real_escape_string($db, $_POST['nom_menu']);
-						$edit_contenu_menu = mysqli_real_escape_string($db, $_POST['contenu_menu']);
+						$edit_contenu_menu = mysqli_real_escape_string($db, $_POST['scroll_entrees'],  $_POST['scroll_plats'], $_POST['scroll_desserts'], $_POST['scroll_boissons']);
 						$edit_tarif_menu = mysqli_real_escape_string($db,$_POST['tarif_menu']);
 						$check_nom_menu = 'SELECT * FROM menu WHERE nom_menu = "'.$edit_nom_menu.'"';
 						$res_nom_menu = mysqli_query($db, $check_nom_menu);
