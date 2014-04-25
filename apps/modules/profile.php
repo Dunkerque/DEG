@@ -1,7 +1,6 @@
 <?php
 $msgU ='';
 $date = strftime("%A %d %B %Y", strtotime($data['register_date']));
-$date = mb_convert_encoding($date, 'utf-8');
 $date = ucwords(htmlentities($date));
 
 if(isset($_GET['success'])){
