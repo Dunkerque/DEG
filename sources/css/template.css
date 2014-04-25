@@ -266,7 +266,6 @@ img{
 .form_login{
 	float:right;
 	width:40%;
-	margin-top:0.5rem;
 }
 
 .form_login>input{
@@ -278,6 +277,7 @@ img{
 
 .p_register{
 	float:right;
+	margin:0;
 }
 
 .p_register>a{
