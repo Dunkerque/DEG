@@ -1,4 +1,8 @@
 <?php
+require ("apps/model_user.php");
+
+$userSelect = new User();
+$userEdit = new User();
 
 $msg = "";
 
@@ -10,19 +14,23 @@ if (isset($_SESSION["login"]))
     {
         if ($_SESSION["admin"] === 1)
         {
-            $querySUser = 'SELECT * FROM users WHERE id_users = "'.$idUser.'"';
-            $resQuerySUser = mysqli_query($db,$querySUser);
-            $resSUser = mysqli_fetch_assoc($resQuerySUser);
+            $resSUser = $userSelect->selectSpecUser($db,$idUser);
 
-            $loginSU = htmlentities($resSUser["login"]);
-            $nameSU = htmlentities($resSUser["nom"]);
-            $surnameSU = htmlentities($resSUser["prenom"]);
-            $emailSU = htmlentities($resSUser["email"]);
-            $adressSU = htmlentities($resSUser["adresse"]);
-            $cpSU = intval($resSUser["code_postal"]);
-            $citySU = htmlentities($resSUser["ville"]);
-            $infosSU = htmlentities($resSUser["info_complementaire"]);
+            $userEdit->setidUser($_GET["iduser"]);
+            $userEdit->setLogin($resSUser["login"]);
+            $userEdit->setName($resSUser["nom"]);
+            $userEdit->setSurname($resSUser["prenom"]);
+            $userEdit->setEmail($resSUser["email"]);
+            $userEdit->setAdress($resSUser["adresse"]);
+            $userEdit->setCp($resSUser["code_postal"]);
+            $userEdit->setCity($resSUser["ville"]);
+            $userEdit->setInfos($resSUser["info_complementaire"]);
 
+
+            if (isset($_POST["update_user_sub"]))
+            {
+                echo "post ok";
+            }
             require("views/edit_user.html");
         }
 
