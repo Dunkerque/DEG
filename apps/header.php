@@ -35,7 +35,7 @@ else
 	if(isset($_POST['login_user'], $_POST['login_pass']))
 	{
 		$login_user = mysqli_real_escape_string($db,$_POST['login_user']);
-		$login_pass = mysqli_real_escape_string($db,sha1($_POST['login_pass']));
+		$login_pass = mysqli_real_escape_string($db,$_POST['login_pass']);
 		$request_checkUser = 'SELECT * FROM users WHERE login = "'.$login_user.'"';
 		$resUser = mysqli_query($db,$request_checkUser);
 		$dataUser = mysqli_fetch_assoc($resUser);
@@ -44,8 +44,13 @@ else
 		{
 			if($dataUser)
 			{
-				if($login_pass == $dataUser['password'])
+				echo"ok";
+				echo $dataUser['password'];
+				echo $login_pass;
+				if(password_verify($login_pass,$dataUser['password']))
 				{
+
+					echo "ok1";
 					$_SESSION['id'] = $dataUser['id_users'];
 					$_SESSION['login'] = $dataUser['login'];
 					$_SESSION['pass'] = $dataUser['password'];

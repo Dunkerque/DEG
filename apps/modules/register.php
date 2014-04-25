@@ -74,9 +74,10 @@ if(isset($_POST['form_user']))
 		        }
 				else
 				{
+					$hash = password_hash($_POST['register_password'],PASSWORD_BCRYPT,["cost"=>13]);
 					$login = trim($_POST['register_login']);
 					$login = mysqli_real_escape_string($db, $_POST['register_login']);
-					$password = mysqli_real_escape_string($db, sha1($_POST['register_password'])); // sha1 pour sécurisé le password
+					$password = mysqli_real_escape_string($db, $hash); // sha1 pour sécurisé le password
 					$email = mysqli_real_escape_string($db, $_POST['register_email']);
 					$nom = mysqli_real_escape_string($db, $_POST['register_nom']);
 					$prenom = mysqli_real_escape_string($db, $_POST['register_prenom']);
