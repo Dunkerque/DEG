@@ -11,6 +11,7 @@ if(isset($_SESSION['msg_error']))
 if(isset($_POST['order_plats']))
 {
 	var_dump($_POST);
+	echo $_POST['numberProducts'];
 	// if(empty($_POST["list"]))
 	// {
 	// 	$_SESSION['msg_error'] = "Veuillez au moins choisir un article";
