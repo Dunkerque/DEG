@@ -105,17 +105,6 @@ class User
         $this->infos = $data;
     }
 
-    public function selectSpecUser($db,$iduser)
-    {
-    	$idSUser = intval($iduser);
-
-    	$querySUser = 'SELECT * FROM users WHERE id_users = "'.$idSUser.'"';
-        $resQuerySUser = mysqli_query($db,$querySUser);
-        $resSUser = mysqli_fetch_assoc($resQuerySUser);
-
-        return $resSUser;
-    }
-
     public function editSpecUser($db)
     {
         $idUser = $this->idUser;
