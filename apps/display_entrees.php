@@ -4,6 +4,6 @@
 	while($dataEntrees = mysqli_fetch_assoc($resEntrees))
 	{
 		$nameEntrees = htmlentities($dataEntrees['nom_entree']);
-		echo '<option value="">'.$nameEntrees.'</option>';
+		echo '<option value="'.$dataEntrees['id_entree'].'">'.$nameEntrees.'</option>';
 	}
 ?>
