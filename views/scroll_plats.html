@@ -1,4 +1,4 @@
-<?= $select_open; ?>
-	<option selected="selected">Fait ton choix</option>
-	<option value="<?= $namePlats; ?>"></option>
-<?= $select_end; ?>
+<select name="scroll_plat" value="">
+	<option selected="selected" value="">Fait ton choix</option>
+	<?php require("apps/display_plats.php"); ?>
+</select>

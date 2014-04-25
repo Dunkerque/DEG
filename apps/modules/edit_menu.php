@@ -8,14 +8,14 @@
 	if (isset($_POST["form_edit_menu"]))
 	{
 	    $edit_nom_menu = $_POST['nom_menu'];
-	    $edit_contenu_menu = $_POST['contenu_menu'];
+	    $edit_contenu_menu = $_POST['scroll_plat'];
 	    $edit_tarif_menu = $_POST['tarif_menu'];    
 	}
 
 	if(isset($_POST['form_edit_menu']))
 	{
 		if (empty($_POST["nom_menu"]) ||
-			empty($_POST["contenu_menu"]) ||
+			empty($_POST["scroll_plat"]) ||
 			empty($_POST["tarif_menu"]))
 			{
 				$msg_menu = "Des champs requis sont manquants";
