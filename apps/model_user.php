@@ -107,18 +107,24 @@ class User
 
     public function selectSpecUser($db,$iduser)
     {
-    	$idUser = intval($iduser);
+    	$idSUser = intval($iduser);
 
-    	$querySUser = 'SELECT * FROM users WHERE id_users = "'.$idUser.'"';
+    	$querySUser = 'SELECT * FROM users WHERE id_users = "'.$idSUser.'"';
         $resQuerySUser = mysqli_query($db,$querySUser);
         $resSUser = mysqli_fetch_assoc($resQuerySUser);
 
         return $resSUser;
     }
 
-    public function editSpecUser($db,$iduser)
+    public function editSpecUser($db)
     {
+        $idUser = $this->idUser;
+        $login = $this->login;
 
+        $queryEditUser = 'UPDATE users SET login = "'.$login.'" WHERE id_users = "'.$idUser.'"';
+        $resQueryEditUser = mysqli_query($db,$queryEditUser);
+
+        var_dump($queryEditUser);
     }
 }
 
