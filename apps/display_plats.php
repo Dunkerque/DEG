@@ -1,9 +1,9 @@
 <?php 
-	$showAll = "SELECT * FROM plats";
-	$res = mysqli_query($db, $showAll);
-	while($data = mysqli_fetch_assoc($res))
+	$showPlats = "SELECT * FROM plats";	
+	$resPlats = mysqli_query($db, $showPlats);
+	while($dataPlats = mysqli_fetch_assoc($resPlats))
 	{
-		$namePlats = htmlentities($data['nom_plats']);
+		$namePlats = htmlentities($dataPlats['nom_plats']);
 		echo '<option value="">'.$namePlats.'</option>';
 	}
 ?>
