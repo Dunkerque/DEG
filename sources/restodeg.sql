@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 24 Avril 2014 à 12:04
+-- Généré le: Ven 25 Avril 2014 à 10:08
 -- Version du serveur: 5.5.37-0ubuntu0.13.10.1
 -- Version de PHP: 5.5.3-1ubuntu2.3
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Base de données: `restodeg`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `boissons`
+--
+
+CREATE TABLE IF NOT EXISTS `boissons` (
+  `id_boisson` int(3) NOT NULL AUTO_INCREMENT,
+  `nom_boisson` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contenu_boisson` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tarif_boisson` float DEFAULT NULL,
+  PRIMARY KEY (`id_boisson`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
+--
+-- Contenu de la table `boissons`
+--
+
+INSERT INTO `boissons` (`id_boisson`, `nom_boisson`, `contenu_boisson`, `tarif_boisson`) VALUES
+(1, 'sake', 'alcool de riz', 4.5),
+(2, 'umeshu', 'alcool neutre aromatisé par macération de prunes de l''abricotier du Japon', 4.5),
+(3, 'coca', 'la célèbre boisson coca cola', 3.8),
+(4, 'orangina', 'a secouer ou la pulpe reste reste en bas', 3.8),
+(5, 'café', 'boisson à base des fameuses graines marrons', 2.8),
+(6, 'thé', 'boisson aromatisé par un infusion plus ou moins longue de végétaux', 3.8);
 
 -- --------------------------------------------------------
 
@@ -44,6 +70,50 @@ CREATE TABLE IF NOT EXISTS `Commandes` (
   KEY `fk_Commandes_plats1_idx` (`plats_id_plats`),
   KEY `fk_Commandes_menus1_idx` (`menus_id_menus`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `desserts`
+--
+
+CREATE TABLE IF NOT EXISTS `desserts` (
+  `id_dessert` int(3) NOT NULL AUTO_INCREMENT,
+  `nom_dessert` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contenu_dessert` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tarif_dessert` float DEFAULT NULL,
+  PRIMARY KEY (`id_dessert`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `desserts`
+--
+
+INSERT INTO `desserts` (`id_dessert`, `nom_dessert`, `contenu_dessert`, `tarif_dessert`) VALUES
+(1, 'anko', 'une sorte de pâte obtenu à partir d''azuki qui est ensuite sucré avec du miel', 4.95),
+(2, 'daifuku', 'daifuku : grande chance, est une sucrerie japonaise a base de mochi(riz glutineux) et rempli au centre avec du anko', 4.95);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `entrees`
+--
+
+CREATE TABLE IF NOT EXISTS `entrees` (
+  `id_entree` int(3) NOT NULL AUTO_INCREMENT,
+  `nom_entree` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contenu_entree` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tarif_entree` float DEFAULT NULL,
+  PRIMARY KEY (`id_entree`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `entrees`
+--
+
+INSERT INTO `entrees` (`id_entree`, `nom_entree`, `contenu_entree`, `tarif_entree`) VALUES
+(1, 'edamame', 'fèves immatures de soja, d''origine japonaise', 2.25),
+(2, 'tsukemono', 'légumes macéré dans une saumure, du vinaigre ou encore une solution à base de sake kasu', 2.25);
 
 -- --------------------------------------------------------
 
@@ -79,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `id_menus` smallint(6) NOT NULL,
   `nom_menus` varchar(45) NOT NULL,
   `contenu_menus` varchar(45) DEFAULT NULL,
-  `tarif_menu` varchar(45) NOT NULL,
+  `tarif_menu` double NOT NULL,
   `plats_id_plats` smallint(6) NOT NULL,
   PRIMARY KEY (`id_menus`),
   KEY `fk_menus_plats1_idx` (`plats_id_plats`)
@@ -95,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `plats` (
   `id_plats` smallint(6) NOT NULL AUTO_INCREMENT,
   `nom_plats` varchar(16) NOT NULL,
   `contenu_plats` varchar(128) DEFAULT NULL,
-  `tarif_plats` varchar(45) NOT NULL,
+  `tarif_plats` double NOT NULL,
   PRIMARY KEY (`id_plats`),
   UNIQUE KEY `id_plats_UNIQUE` (`id_plats`),
   UNIQUE KEY `nom_plats_UNIQUE` (`nom_plats`)
@@ -106,12 +176,12 @@ CREATE TABLE IF NOT EXISTS `plats` (
 --
 
 INSERT INTO `plats` (`id_plats`, `nom_plats`, `contenu_plats`, `tarif_plats`) VALUES
-(1, 'Onigiri thon may', 'riz, algue, thon avec mayonaise', '2,80'),
-(2, 'Onigiri saumon', 'riz, algue, saumon', '2,80'),
-(3, 'Onigiri bonite', 'riz, algue, bonite', '2,80'),
-(4, 'Katsudon', 'porc pané, oeuf, riz', '7.80'),
-(5, 'Gyuudon', 'lamelles de boeuf, oeuf,oignons, riz', '7.80'),
-(6, 'Oyakodon', 'poulet oeuf riz dashi mirin suace soja', '7,80');
+(1, 'Onigiri thon may', 'riz, algue, thon avec mayonaise', 2),
+(2, 'Onigiri saumon', 'riz, algue, saumon', 2),
+(3, 'Onigiri bonite', 'riz, algue, bonite', 2),
+(4, 'Katsudon', 'porc pané, oeuf, riz', 7.8),
+(5, 'Gyuudon', 'lamelles de boeuf, oeuf,oignons, riz', 7.8),
+(6, 'Oyakodon', 'poulet oeuf riz dashi mirin suace soja', 7);
 
 -- --------------------------------------------------------
 
@@ -153,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id_users`),
   UNIQUE KEY `id_users_UNIQUE` (`id_users`),
   UNIQUE KEY `login_UNIQUE` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `users`
