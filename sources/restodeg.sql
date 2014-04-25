@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 25 Avril 2014 à 09:48
+-- Généré le: Ven 25 Avril 2014 à 10:08
 -- Version du serveur: 5.5.37-0ubuntu0.13.10.1
 -- Version de PHP: 5.5.3-1ubuntu2.3
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `Commandes` (
 
 CREATE TABLE IF NOT EXISTS `desserts` (
   `id_dessert` int(3) NOT NULL AUTO_INCREMENT,
-  `nom_desser` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nom_dessert` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   `contenu_dessert` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tarif_dessert` float DEFAULT NULL,
   PRIMARY KEY (`id_dessert`)
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `desserts` (
 -- Contenu de la table `desserts`
 --
 
-INSERT INTO `desserts` (`id_dessert`, `nom_desser`, `contenu_dessert`, `tarif_dessert`) VALUES
+INSERT INTO `desserts` (`id_dessert`, `nom_dessert`, `contenu_dessert`, `tarif_dessert`) VALUES
 (1, 'anko', 'une sorte de pâte obtenu à partir d''azuki qui est ensuite sucré avec du miel', 4.95),
 (2, 'daifuku', 'daifuku : grande chance, est une sucrerie japonaise a base de mochi(riz glutineux) et rempli au centre avec du anko', 4.95);
 
