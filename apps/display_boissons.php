@@ -4,6 +4,6 @@
 	while($dataBoissons = mysqli_fetch_assoc($resBoissons))
 	{
 		$nameBoissons = htmlentities($dataBoissons['nom_boisson']);
-		echo '<option value="'.$dataBoissons['id_boisson'].'">'.$nameBoissons.'</option>';
+		echo '<option value="'.$dataBoissons['nom_boisson'].'">'.$nameBoissons.'</option>';
 	}
 ?>
