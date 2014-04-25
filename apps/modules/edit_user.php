@@ -30,8 +30,6 @@ if (isset($_SESSION["login"]))
 
             if (isset($_POST["update_user_sub"]))
             {
-
-                $userEdit->setidUser($_GET["iduser"]);
                 $userEdit->setLogin($resSUser["login"]);
                 $userEdit->setName($resSUser["nom"]);
                 $userEdit->setSurname($resSUser["prenom"]);
