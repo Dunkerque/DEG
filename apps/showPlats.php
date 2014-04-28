@@ -17,7 +17,6 @@ if(isset($_SESSION['login']))
 			}
 		}
 	}
-	require("apps/modules/logout.php");
 }
 else{
 	$_SESSION['msg_error'] = "Vous devez vous connecter pour voir ce contenu";
