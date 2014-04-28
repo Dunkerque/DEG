@@ -1,5 +1,5 @@
 <?php
-require ("apps/user_class.php");
+require ("models/user_class.php");
 
 $userSelect = new User();
 $userEdit = new User();
@@ -18,21 +18,34 @@ if (isset($_SESSION["login"]))
             $resQuerySUser = mysqli_query($db,$querySUser);
             $resSUser = mysqli_fetch_assoc($resQuerySUser);
 
-            $userEdit->setidUser($_GET["iduser"]);
-            $userEdit->setLogin($resSUser["login"]);
-            $userEdit->setName($resSUser["nom"]);
-            $userEdit->setSurname($resSUser["prenom"]);
-            $userEdit->setEmail($resSUser["email"]);
-            $userEdit->setAdress($resSUser["adresse"]);
-            $userEdit->setCp($resSUser["code_postal"]);
-            $userEdit->setCity($resSUser["ville"]);
-            $userEdit->setInfos($resSUser["info_complementaire"]);
+            $idUserEdit = $userEdit->setidUser($_GET["iduser"]);
+            $loginEdit = $userEdit->setLogin($resSUser["login"]);
+            $nameEdit = $userEdit->setName($resSUser["nom"]);
+            $surnameEdit = $userEdit->setSurname($resSUser["prenom"]);
+            $emailEdit = $userEdit->setEmail($resSUser["email"]);
+            $adresseEdit = $userEdit->setAdress($resSUser["adresse"]);
+            $cpEdit = $userEdit->setCp($resSUser["code_postal"]);
+            $cityEdit = $userEdit->setCity($resSUser["ville"]);
+            $infosEdit = $userEdit->setInfos($resSUser["info_complementaire"]);
+
+            $idUserEdit = $userEdit->getIdUser();
+            $loginEdit = $userEdit->getLogin();
+            $nameEdit = $userEdit->getName();
+            $surnameEdit = $userEdit->getSurname();
+            $emailEdit = $userEdit->getEmail();
+            $adresseEdit = $userEdit->getAdress();
+            $cpEdit = $userEdit->getCp();
+            $cityEdit = $userEdit->getCity();
+            $infosEdit = $userEdit->getInfos();
 
             if (isset($_POST["update_user_sub"]))
             {
+                echo $userEdit->getLogin();
+                echo $userEdit->getError();
+
                 
 
-                $userEdit->editSpecUser($db);
+                //$userEdit->editSpecUser($db);
             }
             require("views/edit_user.html");
         }

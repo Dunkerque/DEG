@@ -1,4 +1,3 @@
-
 <?php
 $erreur = '';
 if(isset($_SESSION['login']))
