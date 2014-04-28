@@ -1,6 +1,6 @@
 <div class="content main_div">
 	<h2>Création d'un compte:</h2>
-	<p class="error_msg"><?= $msg_register; ?></p>
+	<p class="error_msg"><?=$msg_register;?></p>
 	<form action="index.php?page=register" method="POST">
 		<div class="form_register">
 			<h3>Identifiant</h3>
@@ -22,9 +22,8 @@
 		</div>
 		<div class="register_infos clear">
 			<h4>Information complémentaires :</h4>
-			<textarea name="register_info_comp" cols="45" rows="4" value="" placeholder="digicode - bâtiments cours - étage - porte"><?= $infosUForm;?></textarea>
+			<textarea name="register_info_comp" cols="45" rows="4" value="" placeholder="digicode - bâtiments cours - étage - porte"><?=$infosUForm;?></textarea>
 		</div>
 		<p class="p_sub_register"><input class="sub_register" type="submit" value="Valider" name="form_user"/></p>
 	</form>
 </div>
-

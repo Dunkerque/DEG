@@ -67,69 +67,134 @@ class User
 
     // SETTERS
 
-    public function setIdUser($data)
+    public function setIdUser($iduser)
     {
-        intval($data);
-        $this->idUser = $data;
+        intval($iduser);
+        $this->idUser = $iduser;
     }
 
-    public function setLogin($data)
+    public function setLogin($login)
     {
-        $this->login = $data;
-    }
-
-    public function setName($data)
-    {
-        $this->name = $data;
-    }
-    public function setSurname($data)
-    {
-        $this->surname = $data;
-    }
-
-    public function setEmail($data)
-    {
-        if (filter_var($data, FILTER_VALIDATE_EMAIL))
+        if (strlen($login) < 3)
         {
-            $this->email = $data;
+            $this->error = "Le login est trop court (Min 3 caractères)";
+        }
+
+        elseif (strlen($login) > 16)
+        {
+            $this->error = "Le login est trop long (Max 16 caractères)";
         }
 
         else
         {
-            $this->error = "pas bon";
+            $this->login = $login;
         }
     }
 
-    public function setAdress($data)
+    public function setName($name)
     {
-        $this->adress = $data;
+        if (ctype_alpha($name))
+        {
+            if (strlen($name) < 3)
+            {
+                $this->error = "Le nom est trop court (Min 3 caractères)";
+            }
+
+            elseif (strlen($name) > 45)
+            {
+                $this->error = "Le nom est trop long (Max 45 caractères)";
+            }
+
+            else
+            {
+                $this->name = $name;
+            }
+        }
+
+        else
+        {
+            $this->error = "Le nom ne peut pas comporter de chiffre";
+        }
     }
-    public function setCp($data)
+
+    public function setSurname($surname)
     {
-        $this->cp = $data;
+        if (ctype_alpha($surname))
+        {
+            if (strlen($surname) < 3)
+            {
+                $this->error = "Le prénom est trop court (Min 3 caractères)";
+            }
+
+            elseif (strlen($surname) > 45)
+            {
+                $this->error = "Le prénom est trop long (Max 45 caractères)";
+            }
+
+            else
+            {
+                $this->surname = $surname;
+            }
+        }
+
+        else
+        {
+            $this->error = "Le prénom ne peut pas comporter de chiffre";
+        }
     }
 
-    public function setCity($data)
+    public function setEmail($email)
     {
-        $this->city = $data;
+        if (filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            $this->email = $email;
+        }
+
+        else
+        {
+            $this->error = "Le format de l'email n'est pas correct";
+        }
     }
 
-    public function setInfos($data)
+    public function setAdress($adress)
     {
-        $this->infos = $data;
+        $this->adress = $adress;
     }
 
-    public function editSpecUser($db)
+    public function setCp($cp)
     {
-        $idUser = $this->idUser;
-        $login = $this->login;
+        if (filter_var($cp, FILTER_VALIDATE_INT))
+        {
+            if (strlen($cp) < 2)
+            {
+                $this->error = "Le code postal est trop court (Min 2 caractères)";
+            }
 
-        $queryEditUser = 'UPDATE users SET login = "'.$login.'" WHERE id_users = "'.$idUser.'"';
-        $resQueryEditUser = mysqli_query($db,$queryEditUser);
+            elseif (strlen($cp) > 5)
+            {
+                $this->error = "Le code postal est trop long (Max 5 caractères)";
+            }
 
-        var_dump($queryEditUser);
+            else
+            {
+                $this->cp = $cp;
+            }
+        }
+
+        else
+        {
+            $this->error = "Le format du code postal n'est pas correct";
+        }
+    }
+
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    public function setInfos($infos)
+    {
+        $this->infos = $infos;
     }
 }
-
-
 ?>
