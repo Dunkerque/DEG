@@ -251,7 +251,7 @@ img{
 }
 
 .bkg_top_log{
-	background:url("../img/pogoparc2-1200.png") no-repeat center center / contain;
+	background:url("../img/title.png") no-repeat;
 	height:8rem;
 	margin-bottom:1rem;
 	border:0.0625rem solid rgb(153,0,0);
