@@ -45,8 +45,6 @@ else
 			{
 				if(password_verify($login_pass,$dataUser['password']))
 				{
-
-					echo "ok1";
 					$_SESSION['id'] = $dataUser['id_users'];
 					$_SESSION['login'] = $dataUser['login'];
 					$_SESSION['pass'] = $dataUser['password'];
