@@ -1,5 +1,5 @@
 <?php
-require ("apps/model_user.php");
+require ("apps/user_class.php");
 
 $userSelect = new User();
 $userEdit = new User();
@@ -30,14 +30,6 @@ if (isset($_SESSION["login"]))
 
             if (isset($_POST["update_user_sub"]))
             {
-                $userEdit->setLogin($resSUser["login"]);
-                $userEdit->setName($resSUser["nom"]);
-                $userEdit->setSurname($resSUser["prenom"]);
-                $userEdit->setEmail($resSUser["email"]);
-                $userEdit->setAdress($resSUser["adresse"]);
-                $userEdit->setCp($resSUser["code_postal"]);
-                $userEdit->setCity($resSUser["ville"]);
-                $userEdit->setInfos($resSUser["info_complementaire"]);
                 
 
                 $userEdit->editSpecUser($db);
