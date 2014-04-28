@@ -43,9 +43,6 @@ else
 		{
 			if($dataUser)
 			{
-				echo"ok";
-				echo $dataUser['password'];
-				echo $login_pass;
 				if(password_verify($login_pass,$dataUser['password']))
 				{
 
