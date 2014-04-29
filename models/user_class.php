@@ -2,22 +2,29 @@
 
 class User
 {
-	private $idUser;
+
+    // indiquer les mêmes noms de champs que dans la BDD, ce qui permet de les remplir automatiquement lorsque l'on fait une requete avec mysqli_fetch_object : voir edit_user.php ligne 16
+	private $id_users;
 	private $login;
-    private $name;
-    private $surname;
+    private $password;
+    private $admin;
     private $email;
-    private $adress;
-    private $cp;
-    private $city;
-    private $infos;
+    private $nom;
+    private $prenom;
+    private $adresse;
+    private $code_postal;
+    private $ville;
+    private $info_complementaire;
+    private $birthday;
+    private $register_date;
+    private $fidel_point;
     private $error;
 
     // GETTERS
 
     public function getIdUser()
     {
-        return $this->idUser;
+        return $this->id_users;
     }
 
     public function getLogin()
@@ -25,14 +32,19 @@ class User
     	return $this->login;
     }
 
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
     public function getName()
     {
-    	return $this->name;
+    	return $this->nom;
     }
 
     public function getSurname()
     {
-    	return $this->surname;
+    	return $this->prenom;
     }
 
     public function getEmail()
@@ -42,22 +54,37 @@ class User
 
     public function getAdress()
     {
-    	return $this->adress;
+    	return $this->adresse;
     }
 
     public function getCp()
     {
-    	return $this->cp;
+    	return $this->code_postal;
     }
 
     public function getCity()
     {
-    	return $this->city;
+    	return $this->ville;
     }
 
     public function getInfos()
     {
-    	return $this->infos;
+    	return $this->info_complementaire;
+    }
+
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    public function getRegisterDate()
+    {
+        return $this->register_date;
+    }
+
+    public function getFidelPoint()
+    {
+        return $this->fidel_point;
     }
 
     public function getError()
@@ -67,10 +94,10 @@ class User
 
     // SETTERS
 
-    public function setIdUser($iduser)
+    public function setIdUser($idUser)
     {
-        intval($iduser);
-        $this->idUser = $iduser;
+        intval($idUser);
+        $this->id_users = $idUser;
     }
 
     public function setLogin($login)
@@ -91,6 +118,11 @@ class User
         }
     }
 
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
     public function setName($name)
     {
         if (ctype_alpha($name))
@@ -107,7 +139,7 @@ class User
 
             else
             {
-                $this->name = $name;
+                $this->nom = $name;
             }
         }
 
@@ -133,7 +165,7 @@ class User
 
             else
             {
-                $this->surname = $surname;
+                $this->prenom = $surname;
             }
         }
 
@@ -158,7 +190,7 @@ class User
 
     public function setAdress($adress)
     {
-        $this->adress = $adress;
+        $this->adresse = $adress;
     }
 
     public function setCp($cp)
@@ -177,7 +209,7 @@ class User
 
             else
             {
-                $this->cp = $cp;
+                $this->code_postal = $cp;
             }
         }
 
@@ -189,12 +221,27 @@ class User
 
     public function setCity($city)
     {
-        $this->city = $city;
+        $this->ville = $city;
     }
 
     public function setInfos($infos)
     {
-        $this->infos = $infos;
+        $this->info_complementaire = $infos;
+    }
+
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+    }
+
+    public function setRegisterDate($registerDate)
+    {
+        $this->register_date = $registerDate;
+    }
+
+    public function setFidelPoint($fidelPoint)
+    {
+        $this->fidel_point = $fidelPoint;
     }
 }
 ?>
