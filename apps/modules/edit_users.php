@@ -1,6 +1,6 @@
 <?php
 
-require("models/user_class.php");
+require("models/usermanager.class.php");
 
 $msg = "";
 

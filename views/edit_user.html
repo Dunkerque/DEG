@@ -4,23 +4,23 @@
 	<form action="index.php?page=edit_user&iduser=<?=$idUser?>" method="post">
 		<div class="div_profil_infos">
 		<h3>Informations</h3>
-		<p class="profil_info"><span class="head_info">Login : </span><input class="input" type="text" value="<?=$resSUser->getLogin();?>" name="update_login" required /></p>
-		<p class="profil_info"><span class="head_info">Adresse Email : </span><input class="input" type="text" value="<?=$resSUser->getEmail();?>" name="update_email" required /></p>
+		<p class="profil_info"><span class="head_info">Login : </span><input class="input" type="text" value="<?=$selectUser->getLogin();?>" name="update_login" required /></p>
+		<p class="profil_info"><span class="head_info">Adresse Email : </span><input class="input" type="text" value="<?=$selectUser->getEmail();?>" name="update_email" required /></p>
 		</div>
 		<div class="div_profil_infos">
 			<h3>Présentation</h3>
-			<p class="profil_info"><span class="head_info">Nom : </span><input class="input" type="text" value="<?=$resSUser->getName();?>" name="update_name" required /></p>
-			<p class="profil_info"><span class="head_info">Prénom : </span><input class="input" type="text" value="<?=$resSUser->getSurname();?>" name="update_surname" required /></p>
+			<p class="profil_info"><span class="head_info">Nom : </span><input class="input" type="text" value="<?=$selectUser->getName();?>" name="update_name" required /></p>
+			<p class="profil_info"><span class="head_info">Prénom : </span><input class="input" type="text" value="<?=$selectUser->getSurname();?>" name="update_surname" required /></p>
 		</div>
 		<div class="div_profil_infos">
 			<h3>Coordonnées postale</h3>
-			<p class="profil_info"><span class="head_info">Adresse : </span><input class="input" type="text" value="<?=$resSUser->getAdress();?>" name="update_adress" required /></p>
-			<p class="profil_info"><span class="head_info">Code postal : </span><input class="input" type="text" value="<?=$resSUser->getCp();?>" name="update_cp" required /></p>
-			<p class="profil_info"><span class="head_info">Ville : </span><input class="input" type="text" value="<?=$resSUser->getCity();?>" name="update_city" required /></p>
+			<p class="profil_info"><span class="head_info">Adresse : </span><input class="input" type="text" value="<?=$selectUser->getAdress();?>" name="update_adress" required /></p>
+			<p class="profil_info"><span class="head_info">Code postal : </span><input class="input" type="text" value="<?=$selectUser->getCp();?>" name="update_cp" required /></p>
+			<p class="profil_info"><span class="head_info">Ville : </span><input class="input" type="text" value="<?=$selectUser->getCity();?>" name="update_city" required /></p>
 		</div>
 		<div class="profil_info_comp clear">
 			<h3 class="clear">Infos Complementaires:</h3>
-			<p><textarea name="update_info_comp" cols="50" rows="10"><?=$resSUser->getInfos();?></textarea></p>
+			<p><textarea name="update_info_comp" cols="50" rows="10"><?=$selectUser->getInfos();?></textarea></p>
 		</div>
 		<p class="p_btn"><input class="sub_medium" name="update_user_sub" type="submit"></p>
 	</form>
