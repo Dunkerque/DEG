@@ -1,5 +1,11 @@
 <?php
 $erreur = '';
+
+if (isset($_GET["id"]))
+{
+	$idUser = htmlentities($_GET["id"]);
+}
+
 if(isset($_SESSION['login']))
 {
 	$request_checkLogin = 'SELECT * FROM users WHERE login = "'.$_SESSION['login'].'" && password = "'.$_SESSION['pass'].'"';
