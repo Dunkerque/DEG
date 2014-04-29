@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 25 Avril 2014 à 10:08
+-- Généré le: Mar 29 Avril 2014 à 11:20
 -- Version du serveur: 5.5.37-0ubuntu0.13.10.1
 -- Version de PHP: 5.5.3-1ubuntu2.3
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `boissons` (
   `contenu_boisson` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tarif_boisson` float DEFAULT NULL,
   PRIMARY KEY (`id_boisson`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `boissons`
@@ -44,7 +44,8 @@ INSERT INTO `boissons` (`id_boisson`, `nom_boisson`, `contenu_boisson`, `tarif_b
 (3, 'coca', 'la célèbre boisson coca cola', 3.8),
 (4, 'orangina', 'a secouer ou la pulpe reste reste en bas', 3.8),
 (5, 'café', 'boisson à base des fameuses graines marrons', 2.8),
-(6, 'thé', 'boisson aromatisé par un infusion plus ou moins longue de végétaux', 3.8);
+(6, 'thé', 'boisson aromatisé par un infusion plus ou moins longue de végétaux', 3.8),
+(7, 'uneBoisson', 'Une boisson au choix', 4.5);
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `desserts` (
   `contenu_dessert` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tarif_dessert` float DEFAULT NULL,
   PRIMARY KEY (`id_dessert`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `desserts`
@@ -91,7 +92,8 @@ CREATE TABLE IF NOT EXISTS `desserts` (
 
 INSERT INTO `desserts` (`id_dessert`, `nom_dessert`, `contenu_dessert`, `tarif_dessert`) VALUES
 (1, 'anko', 'une sorte de pâte obtenu à partir d''azuki qui est ensuite sucré avec du miel', 4.95),
-(2, 'daifuku', 'daifuku : grande chance, est une sucrerie japonaise a base de mochi(riz glutineux) et rempli au centre avec du anko', 4.95);
+(2, 'daifuku', 'daifuku : grande chance, est une sucrerie japonaise a base de mochi(riz glutineux) et rempli au centre avec du anko', 4.95),
+(3, 'unDessert', 'Un dessert au choix', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `entrees` (
   `contenu_entree` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tarif_entree` float DEFAULT NULL,
   PRIMARY KEY (`id_entree`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `entrees`
@@ -113,7 +115,8 @@ CREATE TABLE IF NOT EXISTS `entrees` (
 
 INSERT INTO `entrees` (`id_entree`, `nom_entree`, `contenu_entree`, `tarif_entree`) VALUES
 (1, 'edamame', 'fèves immatures de soja, d''origine japonaise', 2.25),
-(2, 'tsukemono', 'légumes macéré dans une saumure, du vinaigre ou encore une solution à base de sake kasu', 2.25);
+(2, 'tsukemono', 'légumes macéré dans une saumure, du vinaigre ou encore une solution à base de sake kasu', 2.25),
+(3, 'uneEntree', 'une entrée au choix', 2.25);
 
 -- --------------------------------------------------------
 
@@ -130,15 +133,6 @@ CREATE TABLE IF NOT EXISTS `livre_or` (
   KEY `fk_livre_or_users1_idx` (`users_id_users`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
---
--- Contenu de la table `livre_or`
---
-
-INSERT INTO `livre_or` (`id_livre_or`, `date`, `commentaires`, `users_id_users`) VALUES
-(2, '2014-04-24 00:00:00', 'test', 11),
-(3, '2014-04-24 00:00:00', 'test', 11),
-(4, '2014-04-24 10:56:28', 'test', 11);
-
 -- --------------------------------------------------------
 
 --
@@ -146,14 +140,21 @@ INSERT INTO `livre_or` (`id_livre_or`, `date`, `commentaires`, `users_id_users`)
 --
 
 CREATE TABLE IF NOT EXISTS `menus` (
-  `id_menus` smallint(6) NOT NULL,
+  `id_menus` smallint(6) NOT NULL AUTO_INCREMENT,
   `nom_menus` varchar(45) NOT NULL,
   `contenu_menus` varchar(45) DEFAULT NULL,
   `tarif_menu` double NOT NULL,
-  `plats_id_plats` smallint(6) NOT NULL,
-  PRIMARY KEY (`id_menus`),
-  KEY `fk_menus_plats1_idx` (`plats_id_plats`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_menus`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Contenu de la table `menus`
+--
+
+INSERT INTO `menus` (`id_menus`, `nom_menus`, `contenu_menus`, `tarif_menu`) VALUES
+(10, 'menu1', 'edamame, unOnigiri, daifuku, uneBoisson', 12.65),
+(11, 'menu2', 'tsukemono, Katsudon, anko, uneBoisson', 15.45),
+(12, 'menu3', 'uneEntree, unPlat, unDessert, uneBoisson', 17.9);
 
 -- --------------------------------------------------------
 
@@ -169,19 +170,21 @@ CREATE TABLE IF NOT EXISTS `plats` (
   PRIMARY KEY (`id_plats`),
   UNIQUE KEY `id_plats_UNIQUE` (`id_plats`),
   UNIQUE KEY `nom_plats_UNIQUE` (`nom_plats`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table `plats`
 --
 
 INSERT INTO `plats` (`id_plats`, `nom_plats`, `contenu_plats`, `tarif_plats`) VALUES
-(1, 'Onigiri thon may', 'riz, algue, thon avec mayonaise', 2),
-(2, 'Onigiri saumon', 'riz, algue, saumon', 2),
-(3, 'Onigiri bonite', 'riz, algue, bonite', 2),
+(1, 'OnigiriThonMayo', 'riz, algue, thon avec mayonaise', 2),
+(2, 'OnigiriSaumon', 'riz, algue, saumon', 2),
+(3, 'OnigiriBonite', 'riz, algue, bonite', 2),
 (4, 'Katsudon', 'porc pané, oeuf, riz', 7.8),
 (5, 'Gyuudon', 'lamelles de boeuf, oeuf,oignons, riz', 7.8),
-(6, 'Oyakodon', 'poulet oeuf riz dashi mirin suace soja', 7);
+(6, 'Oyakodon', 'poulet oeuf riz dashi mirin suace soja', 7),
+(7, 'unOnigiri', 'Un onigiri au choix', 2),
+(8, 'unPlat', 'Un plat au choix', 7.8);
 
 -- --------------------------------------------------------
 
@@ -223,16 +226,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id_users`),
   UNIQUE KEY `id_users_UNIQUE` (`id_users`),
   UNIQUE KEY `login_UNIQUE` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `users`
 --
 
 INSERT INTO `users` (`id_users`, `login`, `password`, `admin`, `email`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `info_complementaire`, `birthday`, `register_date`, `fidel_point`) VALUES
-(9, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 'admin@admin.com', 'Root', 'admin', '27 rue poupoutu', '93252', 'Orgeuil', '', NULL, '1975-05-25 00:00:00', 1),
-(10, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 0, 'test@test.com', 'membre', 'user', '25 rue cafto', '25252', 'bouca', '', NULL, '1985-02-25 00:00:00', 1),
-(11, 'tata', '90795a0ffaa8b88c0e250546d8439bc9c31e5a5e', 0, 'tata@tata.com', 'tata', 'tata', 'tata', '25252', 'tata', '', '1990-06-25', '2014-04-24 09:46:26', 1);
+(12, 'admin', '$2y$13$gktdg8gjYw11x/Auwe92fukDqMwWltoesuRlDL1dI8eLIVGfR6WDC', 1, 'admin@admin.com', 'root', 'root', '64 trou de bal', '37218', 'lostcity', '', '2014-04-24', '2014-04-29 10:06:16', 1);
 
 --
 -- Contraintes pour les tables exportées
@@ -251,12 +252,6 @@ ALTER TABLE `Commandes`
 --
 ALTER TABLE `livre_or`
   ADD CONSTRAINT `fk_livre_or_users1` FOREIGN KEY (`users_id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `menus`
---
-ALTER TABLE `menus`
-  ADD CONSTRAINT `fk_menus_plats1` FOREIGN KEY (`plats_id_plats`) REFERENCES `plats` (`id_plats`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
