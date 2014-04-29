@@ -1,6 +1,8 @@
 <?php
 $msg ="";
 
+require("models/user_class.php");
+
 if(isset($_SESSION['pass_success']))
 {
     $msg = htmlentities($_SESSION['pass_success']);
@@ -19,14 +21,12 @@ if (isset($_SESSION["login"]))
             }
             else
             {
-                $update_new_pass = password_hash($_POST["update_new_pass"],PASSWORD_BCRYPT,["cost"]=>13);
+                $idUser = htmlentities($_GET["id"]);
+                $queryMDP = 'SELECT password, id_users FROM users WHERE id_users = "'.$idUser.'" ';
+                $resQueryMDP = mysqli_query($db,$queryMDP);
+                $resMDP = mysqli_fetch_object($resQueryMDP, "User");
 
-                if(!preg_match("#[a-zA-Z0-9]{5,}#", $_POST['update_new_pass']))
-                {
-                    $msg = "Le mot de passe doit contenir 5 caractères.";
-                }
-
-                elseif (sha1($_POST["update_old_pass"]) !== $passU )
+                if (!password_verify($_POST["update_old_pass"],$resMDP->getPassword()))
                 {
                     $msg = "L'ancien mot de passe n'est pas correct";
                 }
@@ -38,16 +38,14 @@ if (isset($_SESSION["login"]))
 
                 else
                 {
-                    $modif_pass = mysqli_real_escape_string($db, $update_new_pass);
+                    $resMDP->setPassword($_POST["update_new_pass"]);
 
-                    $modif_u = "UPDATE users SET password = '".$modif_pass."' WHERE id_users = $idU";
-                    $request_edit = mysqli_query($db,$modif_u);
+                    $modif_mdp = "UPDATE users SET password = '".mysqli_real_escape_string($db,$resMDP->getPassword())."' WHERE id_users = '".$resMDP->getIdUser()."'";
+                    $request_edit = mysqli_query($db,$modif_mdp);
 
-                    $_SESSION["pass"] = $update_new_pass;
+                    $_SESSION["pass"] = $resMDP->getPassword();
 
                     $_SESSION["pass_success"] = "Le mot de passe à bien été changé";
-
-                    header("location:index.php?$url");
                 }
             }
         }

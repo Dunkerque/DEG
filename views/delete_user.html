@@ -2,24 +2,24 @@
 	<h2>Suppression utilisateur</h2>
 	<div class="div_profil_infos">
 		<h3>Informations</h3>
-		<p class="profil_info"><span class="head_info">Login:</span> <?= $loginSU;?></p>
-		<p class="profil_info"><span class="head_info">Email:</span> <?= $emailSU; ?></p>
-		<p class="profil_info"><span class="head_info">Date d'inscription:</span> <?= $registerDateSU; ?></p>
+		<p class="profil_info"><span class="head_info">Login:</span> <?=$resUser->getLogin();?></p>
+		<p class="profil_info"><span class="head_info">Email:</span> <?=$resUser->getEmail(); ?></p>
+		<p class="profil_info"><span class="head_info">Date d'inscription:</span> <?=$resUser->getRegisterDate(); ?></p>
 	</div>
 	<div class="div_profil_infos">
 		<h3>Présentation</h3>
-		<p class="profil_info"><span class="head_info">Nom:</span> <?= $nameSU;?></p>
-		<p class="profil_info"><span class="head_info">Prenom:</span> <?= $surnameSU;?></p>
+		<p class="profil_info"><span class="head_info">Nom:</span> <?=$resUser->getName();?></p>
+		<p class="profil_info"><span class="head_info">Prenom:</span> <?=$resUser->getSurname();?></p>
 	</div>
 	<div class="div_profil_infos">
 		<h3>Coordonnées postale</h3>
-		<p class="profil_info"><span class="head_info">Adresse:</span> <?= $adressSU;?></p>
-		<p class="profil_info"><span class="head_info">Code postal:</span> <?= $cpSU;?></p>
-		<p class="profil_info"><span class="head_info">Ville:</span> <?= $citySU;?></p>
+		<p class="profil_info"><span class="head_info">Adresse:</span> <?=$resUser->getAdress();?></p>
+		<p class="profil_info"><span class="head_info">Code postal:</span> <?=$resUser->getCp();?></p>
+		<p class="profil_info"><span class="head_info">Ville:</span> <?=$resUser->getCity();?></p>
 	</div>
 	<div class="profil_info_comp clear">
 		<h3 class="clear">Infos Complementaires:</h3>
-		<p class="profil_info_comp_txt"><?=$infosSU;?></p>
+		<p class="profil_info_comp_txt"><?=$resUser->getInfos();?></p>
 	</div>
 	<p class="center"><button class="btn_large" onclick="window.location='index.php?page=edit_users'">Annuler</button></p>
 	<form action="index.php?page=delete_user&iduser=<?=$idUser?>" method="post">

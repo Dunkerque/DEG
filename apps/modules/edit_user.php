@@ -16,7 +16,6 @@ if (isset($_SESSION["login"]))
             $resSUser = mysqli_fetch_object($resQuerySUser, "User"); //on fait un retour sous forme d'objet. Les variables privées de la classe sont remplies automatiquement. Ici on peut afficher les infos remplies auto avec les GETTERS. voir fichier user_class.php
             if (isset($_POST["update_user_sub"]))
             {
-                $resSUser->setIdUser($idUser);
                 $resSUser->setLogin($_POST["update_login"]);
                 $resSUser->setName($_POST["update_name"]);
                 $resSUser->setSurname($_POST["update_surname"]);

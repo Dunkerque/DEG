@@ -37,7 +37,8 @@ class User
     {
         if (!empty($this->unprotected_password))
         {
-            echo "rempli";
+            $this->password = password_hash($this->unprotected_password, PASSWORD_BCRYPT,["cost"=>13]);
+            $this->unprotected_password = "";
         }
         return $this->password;
     }

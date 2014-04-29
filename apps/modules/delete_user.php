@@ -1,5 +1,7 @@
 <?php
 
+require("models/user_class.php");
+
 $msg = "";
 
 $idUser = htmlentities($_GET["iduser"]);
@@ -19,21 +21,11 @@ if (isset($_SESSION["login"]))
             {
                 $querySUser = 'SELECT * FROM users WHERE id_users = "'.$idUser.'"';
                 $resQuerySUser = mysqli_query($db,$querySUser);
-                $resSUser = mysqli_fetch_assoc($resQuerySUser);
-
-                $loginSU = htmlentities($resSUser["login"]);
-                $nameSU = htmlentities($resSUser["nom"]);
-                $surnameSU = htmlentities($resSUser["prenom"]);
-                $emailSU = htmlentities($resSUser["email"]);
-                $adressSU = htmlentities($resSUser["adresse"]);
-                $cpSU = intval($resSUser["code_postal"]);
-                $citySU = htmlentities($resSUser["ville"]);
-                $infosSU = htmlentities($resSUser["info_complementaire"]);
-                $registerDateSU = $resSUser["register_date"];
+                $resUser = mysqli_fetch_object($resQuerySUser,"User");
 
                 if (isset($_POST["delete_user_sub"]))
                 {
-                    $queryDeleteU = 'DELETE FROM users WHERE id_users = "'.$idUser.'"';
+                    $queryDeleteU = 'DELETE FROM users WHERE id_users = "'.$resUser->getIdUser().'"';
                     $resQueryDeleteU = mysqli_query($db,$queryDeleteU);
 
                     $_SESSION["success_deleteU"] = "L'utilisateur à bien été supprimé";
