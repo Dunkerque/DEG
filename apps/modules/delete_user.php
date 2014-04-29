@@ -1,10 +1,10 @@
 <?php
 
-require("models/user_class.php");
+require("models/usermanager.class.php");
 
 $msg = "";
 
-$idUser = htmlentities($_GET["iduser"]);
+$idSelectedUser = htmlentities($_GET["iduser"]);
 
 if (isset($_SESSION["login"]))
 {
@@ -12,21 +12,19 @@ if (isset($_SESSION["login"]))
     {
         if ($_SESSION["admin"] === 1)
         {
-            if ($idUser === $_SESSION["id"])
+            if ($idSelectedUser === $_SESSION["id"])
             {
                 header("location:index.php?page=edit_users");
             }
 
             else
             {
-                $querySUser = 'SELECT * FROM users WHERE id_users = "'.$idUser.'"';
-                $resQuerySUser = mysqli_query($db,$querySUser);
-                $resUser = mysqli_fetch_object($resQuerySUser,"User");
+                $userManager = new Usermanager($db);
+                $selectUser = $userManager->getUser($idSelectedUser);
 
                 if (isset($_POST["delete_user_sub"]))
                 {
-                    $queryDeleteU = 'DELETE FROM users WHERE id_users = "'.$resUser->getIdUser().'"';
-                    $resQueryDeleteU = mysqli_query($db,$queryDeleteU);
+                    $userManager->deleteUser($selectUser->getIdUser());
 
                     $_SESSION["success_deleteU"] = "L'utilisateur à bien été supprimé";
                     header("location:index.php?page=edit_users");

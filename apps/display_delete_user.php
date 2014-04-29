@@ -1,5 +1,5 @@
 <?php
-	if ($resSUsers->getIdUser() === $_SESSION["id"])
+	if ($this->getIdUser() === $_SESSION["id"])
 	{
 		$properId = true;
 	}
