@@ -1,5 +1,7 @@
 <?php
 
+require("models/user_class.php");
+
 $msg = "";
 
 if (isset($_SESSION["login"]))

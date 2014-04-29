@@ -2,7 +2,6 @@
 
 class User
 {
-
     // indiquer les mêmes noms de champs que dans la BDD, ce qui permet de les remplir automatiquement lorsque l'on fait une requete avec mysqli_fetch_object : voir edit_user.php ligne 16
 	private $id_users;
 	private $login;
@@ -126,9 +125,9 @@ class User
 
     public function setPassword($password)
     {
-        if (strlen($password) < 5)
+        if (strlen($password) < 4)
         {
-            $this->error = "Le mot de passe est trop court (Min 5 caractères)";
+            $this->error = "Le mot de passe est trop court (Min 4 caractères)";
         }
 
         else

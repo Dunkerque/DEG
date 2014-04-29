@@ -1,7 +1,8 @@
 <?php
-$msg ="";
 
 require("models/user_class.php");
+
+$msg ="";
 
 if(isset($_SESSION['pass_success']))
 {
@@ -40,12 +41,20 @@ if (isset($_SESSION["login"]))
                 {
                     $resMDP->setPassword($_POST["update_new_pass"]);
 
-                    $modif_mdp = "UPDATE users SET password = '".mysqli_real_escape_string($db,$resMDP->getPassword())."' WHERE id_users = '".$resMDP->getIdUser()."'";
-                    $request_edit = mysqli_query($db,$modif_mdp);
+                    if ($resMDP->getError() !== null)
+                    {
+                        $msg = $resMDP->getError();
+                    }
 
-                    $_SESSION["pass"] = $resMDP->getPassword();
+                    else
+                    {
+                        $modif_mdp = "UPDATE users SET password = '".mysqli_real_escape_string($db,$resMDP->getPassword())."' WHERE id_users = '".$resMDP->getIdUser()."'";
+                        $request_edit = mysqli_query($db,$modif_mdp);
 
-                    $_SESSION["pass_success"] = "Le mot de passe à bien été changé";
+                        $_SESSION["pass"] = $resMDP->getPassword();
+
+                        $msg = "Le mot de passe à bien été modifié";
+                    }
                 }
             }
         }
