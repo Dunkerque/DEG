@@ -6,6 +6,7 @@ class User
     // indiquer les mêmes noms de champs que dans la BDD, ce qui permet de les remplir automatiquement lorsque l'on fait une requete avec mysqli_fetch_object : voir edit_user.php ligne 16
 	private $id_users;
 	private $login;
+    private $unprotected_password;
     private $password;
     private $admin;
     private $email;
@@ -34,6 +35,10 @@ class User
 
     public function getPassword()
     {
+        if (!empty($this->unprotected_password))
+        {
+            echo "rempli";
+        }
         return $this->password;
     }
 
@@ -120,7 +125,15 @@ class User
 
     public function setPassword($password)
     {
-        $this->password = $password;
+        if (strlen($password) < 5)
+        {
+            $this->error = "Le mot de passe est trop court (Min 5 caractères)";
+        }
+
+        else
+        {
+            $this->unprotected_password = $password;
+        }
     }
 
     public function setName($name)

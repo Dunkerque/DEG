@@ -19,7 +19,7 @@ if (isset($_SESSION["login"]))
             }
             else
             {
-                $update_new_pass = sha1($_POST["update_new_pass"]);
+                $update_new_pass = password_hash($_POST["update_new_pass"],PASSWORD_BCRYPT,["cost"]=>13);
 
                 if(!preg_match("#[a-zA-Z0-9]{5,}#", $_POST['update_new_pass']))
                 {
