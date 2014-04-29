@@ -29,27 +29,27 @@
 		{
 			if (!ctype_alnum($_POST["nom_menu"]))
 	        {
-	        	$msg_menu = "Le nom  du menu ne peut contenir que des lettres ne pas dépasser 32 caractères.";
+	        	$msg_menu = "Le nom  du menu ne peut contenir que des lettres et des chiffres.";
 	        }
 
 	        elseif (!ctype_alpha($_POST['scroll_entrees']))
 	        {
-	        	$msg_menu = "Le contenu de l'entrée ne peut contenir que des lettres ne pas dépasser 128 caractères.";
+	        	$msg_menu = "Le contenu de l'entrée ne peut contenir que des lettres.";
 	        }
 
-	        elseif (!ctype_alpha($_POST['scroll_plats']))
-	        {
-	        	$msg_menu = "Le contenu du plat ne peut contenir que des lettres ne pas dépasser 128 caractères.";
+	        elseif (!ctype_alpha(trim($_POST['scroll_plats'])))
+	        { 
+	        	$msg_menu = "Le contenu du plat ne peut contenir que des lettres .";
 	        }
 
 	        elseif (!ctype_alpha($_POST['scroll_desserts']))
 	        {
-	        	$msg_menu = "Le contenu du dessert ne peut contenir que des lettres ne pas dépasser 128 caractères.";
+	        	$msg_menu = "Le contenu du dessert ne peut contenir que des lettres.";
 	        }
 
 	        elseif (!ctype_alpha($_POST['scroll_boissons']))
 	        {
-	        	$msg_menu = "Le contenu de la boisson ne peut contenir que des lettres ne pas dépasser 128 caractères.";
+	        	$msg_menu = "Le contenu de la boisson ne peut contenir que des lettres.";
 	        }
 
 	        elseif (!floatval($_POST["tarif_menu"]))
