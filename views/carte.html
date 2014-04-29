@@ -1,4 +1,76 @@
 <div class="content main_div">
-	<h2>Nos menus</h2>
-	<p class="p_section">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, veniam, explicabo, animi alias natus magni fugiat ipsum molestiae nobis officia dolorem saepe possimus nostrum eveniet porro quis fuga qui et?</p>
+	<section>
+		<article>
+			<h3>Nos Entrées</h3>
+			<form action='checkbox.php' method="POST">				
+				<input type='checkbox' name='entrees[]' value="Edamame"/><p>&nbsp;Edamame</p>
+				<p>&nbsp;Fèves immature de soja, d'origine japonaise.</p>
+				<input type='checkbox' name='entrees[]' value="Tuskemono"/><p>&nbsp;Tuskemono</p>
+				<p>&nbsp;Légumes macéré dans une saumure, du vinaigre  ou encore une solution à base de sake kasu</p>	
+				<input type="submit"/>
+			</form>
+			<?php require("apps/modules/carte_entrees.php"); ?>
+
+			<h3>Nos Plats</h3>
+			<form action='checkbox.php' method="POST">
+				<input type='checkbox' name='plats[][]' value="Onigiri Thon Mayo"/><p>&nbsp;Onigiri Thon Mayo</p>
+				<p>&nbsp;Riz, algue et thon avec de la mayonaise</p>
+				<input type='checkbox' name='plats[][]' value="Onigiri saumon"/><p>&nbsp;Onigiri saumon</p>
+				<p>&nbsp;Riz, algue et saumon</p>
+				<input type='checkbox' name='plats[][]' value="Onigiri Bonite"/><p>&nbsp;Onigiri Bonite</p>
+				<p>&nbsp;Riz, algue et bonite</p>
+				<input type='checkbox' name='plats[][]' value="Katsudon"/><p>&nbsp;Katsudon</p>
+				<p>&nbsp;Porc pané, oeuf, riz</p>
+				<input type='checkbox' name='plats[][]' value="Gyuudon"/><p>&nbsp;Gyuudon</p>
+				<p>&nbsp;Lamelles de boeuf, oeuf, oignons et riz</p>
+				<input type='checkbox' name='plats[][]' value="Oyakodon"/><p>&nbsp;Oyakodon</p>
+				<p>&nbsp;Poulet, oeuf, riz, dashi, mirin et sauce soja</p>
+				<input type="submit"/>
+			</form>
+			<?php require("apps/modules/carte_plats.php"); ?>
+			modules/
+			<h3>Nos Desserts</h3>
+			<form action='checkbox.php' method="POST">
+				<input type='checkbox' name='desserts[]' value="Anko"/><p>&nbsp;Anko</p>
+				<p>&nbsp;Une sorte de pâte obtenu à partir d'azuki qui est ensuite sucré avec du miel</p>
+				<input type='checkbox' name='desserts[][]' value="Daifuku"/><p>&nbsp;Daifuku</p>
+				<p>&nbsp;Daifuku signifie grande chance, c'est une sucrerie japonaise a base de mochi(riz glutineux) et rempli au centre avec du anko</p>
+				<input type="submit"/>
+			</form>php
+			<?php require("apps/modules/carte_desserts.php"); ?>
+			
+			<h3>Nos Boissons</h3>
+			<form action='checkbox.php' method="POST">
+				<input type='checkbox' name='boissons[]' value="Sake"/><p>&nbsp;Sake</p>
+				<p>&nbsp;Alcool de riz</p>
+				<input type='checkbox' name='boissons[]' value="Umeshu"/><p>&nbsp;Umeshu</p>
+				<p>&nbsp;Alcool neutre aromatisé par macération de prunes de l'abricotier du Japon</p>
+				<input type='checkbox' name='boissons[]' value="Coca"/><p>&nbsp;Coca</p>
+				<p>&nbsp;a célèbre boisson coca cola</p>
+				<input type='checkbox' name='boissons[]' value="Orangina"/><p>&nbsp;Orangina</p>
+				<p>&nbsp;A secouer ou la pulpe reste reste en bas</p>
+				<input type='checkbox' name='boissons[]' value="Café"/><p>&nbsp;Café</p>
+				<p>&nbsp;Une boisson à base des fameuses graines marrons</p>
+				<input type='checkbox' name='boissons[]' value="Thé"/><p>&nbsp;Thé</p>
+				<p>&nbsp;Une boisson aromatisé par un infusion plus ou moins longue de végétaux</p>
+				<input type="submit"/>
+			</form>
+			<?php require("apps/modules/carte_boissons.php"); ?>
+			
+			<h3>Nos menus</h3>
+			<form action='checkbox.php' method="POST">
+				<input type='checkbox' name='menus[]' value="Menu1"/><p>&nbsp;Menu1</p>
+				<p>&nbsp;edamame, unOnigiri, daifuku, une boisson au choix</p>
+				<input type='checkbox' name='menus[]' value="Menu2"/><p>&nbsp;Menu2</p>
+				<p>&nbsp;tsukemono, Katsudon, anko, une boisson au choix</p>
+				<input type='checkbox' name='menus[]' value="Menu3"/><p>&nbsp;Menu3</p>
+				<p>&nbsp;une entree au choix, un plat au choix, un dessert au choix, une boisson au choix</p>
+				<input type="submit"/>
+			</form>
+			<?php require("apps/modules/carte_menus.php"); ?>
+		</article>
+		<article>
+			
+		</article>
+	</section>
 </div>
