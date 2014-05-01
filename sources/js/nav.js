@@ -1,5 +1,5 @@
 // lance une fonction lorsque on clique sur un lien appartenant à la classe .main_nav(= menu principal)
-$(".main_nav a").click(function()
+$(".main_nav a, .p_register a").click(function()
 {	// on recupere l'element cliquer
 	var pages = $(this).attr("href");
 	// on fait une requete ajax pour charge le module
