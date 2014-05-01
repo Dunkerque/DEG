@@ -21,6 +21,7 @@ if($db === false){die("Erreur server");}
 		else
 			$page = "apps/modules/404.php";
 	}
+	// on regarde s'il y'a eu une requete ajax
 	if(isset($_SERVER['HTTP_X_REQUESTED_WITH']))
 		require($page);
 	else
