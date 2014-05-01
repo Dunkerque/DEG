@@ -5,6 +5,7 @@ $(".main_nav a, .p_register a").click(function()
 	// on fait une requete ajax pour charge le module
 	$.ajax(pages).done(function(page){
 		// on affiche le module 
+		/*$(".content.main_div").html(page);*/
 		$(".content.main_div").html(page);
 	});
 	// annule l'effet par default d'un clique sur un lien
@@ -12,3 +13,4 @@ $(".main_nav a, .p_register a").click(function()
 	event.preventDefault();
 	return false;
 });
+

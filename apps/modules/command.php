@@ -1,1 +1,4 @@
-<?php require('views/command.html'); ?>
+<?php
+var_dump($_POST);
+ require('views/command.html'); 
+ ?>
