@@ -10,8 +10,7 @@ session_start();
 $db = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Définit le jeu de caractères en utf8
 mysqli_set_charset($db, "utf8");
-if($db)
-{
+if($db === false){die("Erreur server");}
 	$pagefiles = scandir("apps/modules");
 	$page = "apps/modules/home.php";
 	if(isset($_GET["page"]))
@@ -22,11 +21,9 @@ if($db)
 		else
 			$page = "apps/modules/404.php";
 	}
+	if(isset($_SERVER['HTTP_X_REQUESTED_WITH']))
+		require($page);
+	else
 	require("apps/skel.php");
-	
-}
-else{
-	die("Problème technique");
-}
 ?>
 
