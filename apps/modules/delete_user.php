@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-require("models/user.class.php");
-=======
 require("models/usermanager.class.php");
->>>>>>> 88bf3c891a7087b8c2420775d6d1bb00be046bff
 
 $msg = "";
 
