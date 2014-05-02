@@ -22,6 +22,11 @@ class User
 
     // GETTERS
 
+    public function displayEditUsers()
+    {
+        require("views/display_edit_users.html");
+    }
+
     public function getIdUser()
     {
         return $this->id_users;

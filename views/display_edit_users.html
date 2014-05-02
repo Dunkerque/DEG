@@ -1,27 +1,27 @@
 <div class="div_edit_users">
 	<div class="div_profil_infos">
 		<h3>Informations</h3>
-		<p class="profil_info"><span class="head_info">Login:</span> <?=$resSUsers->getLogin();?></p>
-		<p class="profil_info"><span class="head_info">Email:</span> <?=$resSUsers->getEmail(); ?></p>
-		<p class="profil_info"><span class="head_info">Date d'inscription:</span> <?=$resSUsers->getRegisterDate(); ?></p>
+		<p class="profil_info"><span class="head_info">Login:</span> <?=$this->getLogin();?></p>
+		<p class="profil_info"><span class="head_info">Email:</span> <?=$this->getEmail(); ?></p>
+		<p class="profil_info"><span class="head_info">Date d'inscription:</span> <?=$this->getRegisterDate(); ?></p>
 	</div>
 	<div class="div_profil_infos">
 		<h3>Présentation</h3>
-		<p class="profil_info"><span class="head_info">Nom:</span> <?=$resSUsers->getName();?></p>
-		<p class="profil_info"><span class="head_info">Prenom:</span> <?=$resSUsers->getSurname();?></p>
+		<p class="profil_info"><span class="head_info">Nom:</span> <?=$this->getName();?></p>
+		<p class="profil_info"><span class="head_info">Prenom:</span> <?=$this->getSurname();?></p>
 	</div>
 	<div class="div_profil_infos">
 		<h3>Coordonnées postale</h3>
-		<p class="profil_info"><span class="head_info">Adresse:</span> <?=$resSUsers->getAdress();?></p>
-		<p class="profil_info"><span class="head_info">Code postal:</span> <?=$resSUsers->getCp();?></p>
-		<p class="profil_info"><span class="head_info">Ville:</span> <?=$resSUsers->getCity();?></p>
+		<p class="profil_info"><span class="head_info">Adresse:</span> <?=$this->getAdress();?></p>
+		<p class="profil_info"><span class="head_info">Code postal:</span> <?=$this->getCp();?></p>
+		<p class="profil_info"><span class="head_info">Ville:</span> <?=$this->getCity();?></p>
 	</div>
 	<div class="profil_info_comp clear">
 		<h3 class="clear">Infos Complementaires:</h3>
-		<p class="profil_info_comp_txt"><?=$resSUsers->getInfos();?></p>
+		<p class="profil_info_comp_txt"><?=$this->getInfos();?></p>
 	</div>
     <p class="p_btn">
-        <button class="btn" onclick="window.location='index.php?page=edit_user&iduser=<?=$resSUsers->getIdUser();?>'">Modifier utilisateur</button>
+        <button class="btn" onclick="window.location='index.php?page=edit_user&iduser=<?=$this->getIdUser();?>'">Modifier utilisateur</button>
         <?php require("apps/display_delete_user.php");?>
     </p>
 </div>

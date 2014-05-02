@@ -4,6 +4,12 @@ require("models/usermanager.class.php");
 
 $msg = "";
 
+if (isset($_SESSION["success_deleteU"]))
+{
+    $msg = $_SESSION["success_deleteU"];
+    unset($_SESSION["success_deleteU"]);
+}
+
 if (isset($_SESSION["login"]))
 {
     if ($_SESSION["login"] == $data["login"] && $_SESSION["pass"] == $data["password"])

@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 require("models/user.class.php");
+=======
+require("models/usermanager.class.php");
+>>>>>>> 88bf3c891a7087b8c2420775d6d1bb00be046bff
 
 $msg ="";
 
@@ -28,7 +32,7 @@ if (isset($_SESSION["login"]))
                 $resEditP->setCity($_POST["update_city"]);
                 $resEditP->setInfos($_POST["update_info_comp"]);
 
-                $modif_u = "UPDATE users SET 
+                $modif_u = "UPDATE users SET
                 email = '".mysqli_real_escape_string($db,$resEditP->getEmail())."',
                 nom = '".mysqli_real_escape_string($db,$resEditP->getName())."',
                 prenom = '".mysqli_real_escape_string($db,$resEditP->getSurname())."',

@@ -1,6 +1,5 @@
-<div>
 <?= $nom_plats;?>
 	<?= $contenu_plats; ?> 
 	<?= $tarif_plats;?> <span>€</span>
-	<input type="checkbox" name="list[]" value="<?=$id_plats;?>">
-</div>
+	<p><input type="checkbox" name="list[]" value="<?=$id_plats;?>"></p>
+	<p><input type="number" name="quantity[]" min="0" max="100"></p>

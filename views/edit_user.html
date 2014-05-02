@@ -1,7 +1,7 @@
-<div class="content main_div">
+
 	<h2>Modification utilisateur</h2>
 	<p class="error_msg"><?=$msg;?></p>
-	<form action="index.php?page=edit_user&iduser=<?=$idUser?>" method="post">
+	<form action="index.php?page=edit_user&iduser=<?=$idSelectedUser?>" method="post">
 		<div class="div_profil_infos">
 		<h3>Informations</h3>
 		<p class="profil_info"><span class="head_info">Login : </span><input class="input" type="text" value="<?=$selectUser->getLogin();?>" name="update_login" required /></p>
@@ -25,4 +25,3 @@
 		<p class="p_btn"><input class="sub_medium" name="update_user_sub" type="submit"></p>
 	</form>
 	<p class="p_btn"><button class="btn" onclick="window.location='index.php?page=edit_users'">Retour</button></p>
-</div>
