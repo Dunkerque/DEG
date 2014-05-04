@@ -23,6 +23,6 @@ $(".main_nav a, .p_register a").click(function(event)
 		{
 			ajaxLoad(document.location.href);
 		}
-	//return false;
+	return false;
 });             
 
