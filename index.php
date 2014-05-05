@@ -19,6 +19,9 @@ die("Erreur server");
 	$page = "apps/modules/"."home.php";
 	if(isset($_GET["page"]))
 	{
+		// J'EXPLODE MA CHAINE APRES le index.php? POUR RECUPERE QUE LE MODULE EN COURS;
+		/*$url = explode("?", basename(trim($_SERVER['REQUEST_URI'])));
+		$url = $url[1];*/
 		$pageU = strtolower(htmlentities($_GET["page"]));
 		if (in_array($pageU.".php",$pagefiles))
 			$page = "apps/modules/".$pageU.".php";

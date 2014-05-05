@@ -53,5 +53,9 @@ class panier{
 	public function del($product_id){
 		unset($_SESSION['panier'][$product_id]);
 	}
+	public function delPanier()
+	{
+		unset($_SESSION['panier']);
+	}
 
 }

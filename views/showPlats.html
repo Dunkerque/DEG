@@ -1,5 +1,5 @@
-<?= $nom_plats;?>
-	<?= $contenu_plats; ?> 
-	<?= $tarif_plats;?> <span>€</span>
-	<p><input type="checkbox" name="list[]" value="<?=$id_plats;?>"></p>
-	<p><input type="number" name="quantity[]" min="0" max="100"></p>
+<p><?= $nom_plats;?></p>
+<p><?= $contenu_plats; ?></p>
+<?= $tarif_plats;?> <span>€</span>
+<a style="display:block;" href="index.php?page=command&id=<?= $id_plats;?>">Ajouter au panier</a>
+<hr />

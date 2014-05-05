@@ -7,9 +7,6 @@ class Securite
 		{
 			$data = intval($data);
 		}
-		else{
-			$data = mysqli_real_escape_string($db, $data);
-		}
 		return $data;
 	}
 	public function html($data)
